@@ -1083,6 +1083,20 @@ body {
     opacity: 0.5;
 }
 
+/* ES³ Zone styles */
+.es3-zone-future-proof { background: rgba(16, 185, 129, 0.07); border-top-color: rgba(16, 185, 129, 0.2); }
+.es3-zone-advanced     { background: rgba(59, 130, 246, 0.07); border-top-color: rgba(59, 130, 246, 0.2); }
+.es3-zone-managed      { background: rgba(245, 158, 11, 0.07); border-top-color: rgba(245, 158, 11, 0.2); }
+.es3-zone-initial      { background: rgba(249, 115, 22, 0.07); border-top-color: rgba(249, 115, 22, 0.2); }
+.es3-zone-future-proof .seal-zone-label { color: #10b981; opacity: 0.6; }
+.es3-zone-advanced     .seal-zone-label { color: #3b82f6; opacity: 0.6; }
+.es3-zone-managed      .seal-zone-label { color: #f59e0b; opacity: 0.6; }
+.es3-zone-initial      .seal-zone-label { color: #f97316; opacity: 0.6; }
+[data-theme="dark"] .es3-zone-future-proof { background: rgba(16, 185, 129, 0.09); }
+[data-theme="dark"] .es3-zone-advanced     { background: rgba(59, 130, 246, 0.09); }
+[data-theme="dark"] .es3-zone-managed      { background: rgba(245, 158, 11, 0.09); }
+[data-theme="dark"] .es3-zone-initial      { background: rgba(249, 115, 22, 0.09); }
+
 /* Custom Scores Hint */
 .custom-scores-hint {
     display: flex;

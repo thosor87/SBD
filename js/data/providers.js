@@ -175,6 +175,7 @@
         // EU CSF / SEAL
         SEAL_LEVELS:               FRAMEWORK.SEAL_LEVELS,
         SEAL_ZONES:                FRAMEWORK.SEAL_ZONES,
+        ES3_ZONES:                 FRAMEWORK.ES3_ZONES,
         SOV_CRITERIA:              FRAMEWORK.SOV_CRITERIA,
         SOV_WEIGHTS:               FRAMEWORK.SOV_WEIGHTS,
         getSealLevel:              FRAMEWORK.getSealLevel,

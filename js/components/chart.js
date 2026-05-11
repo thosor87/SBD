@@ -162,21 +162,26 @@
     }
 
     /**
-     * Rendert die SEAL-Zonen als Hintergrundbänder
+     * Rendert die Hintergrundbänder – SEAL-Zonen oder ES³-Zonen je nach View-Mode
      * @param {HTMLElement} container - Chart-Container
      */
     function renderSealZones(container) {
-        const { SEAL_ZONES, SEAL_LEVELS } = getSealData();
-        if (!SEAL_ZONES) return;
+        const data = getSealData();
+        const viewMode = data.getViewMode ? data.getViewMode() : 'seal';
+        const zones = viewMode === 'es3' ? data.ES3_ZONES : data.SEAL_ZONES;
+        if (!zones) return;
 
         // Existierende Zonen entfernen
         container.querySelectorAll('.seal-zone').forEach(z => z.remove());
 
         const fragment = document.createDocumentFragment();
+        const isES3 = viewMode === 'es3';
 
-        SEAL_ZONES.forEach(zone => {
+        zones.forEach(zone => {
             const zoneEl = document.createElement('div');
-            zoneEl.className = `seal-zone seal-zone-${zone.level}`;
+            zoneEl.className = isES3
+                ? `seal-zone seal-zone-es3 es3-zone-${zone.id}`
+                : `seal-zone seal-zone-${zone.level}`;
             zoneEl.style.top = `${zone.top}%`;
             zoneEl.style.height = `${zone.height}%`;
 
@@ -212,10 +217,8 @@
         // Bestehende Punkte entfernen
         clearPoints(container);
 
-        // SEAL-Zonen rendern (einmalig, falls noch nicht vorhanden)
-        if (!container.querySelector('.seal-zone')) {
-            renderSealZones(container);
-        }
+        // Zonen immer neu rendern (view-mode-abhängig: SEAL oder ES³)
+        renderSealZones(container);
 
         // Neue Punkte erstellen (DocumentFragment für Performance)
         const fragment = document.createDocumentFragment();

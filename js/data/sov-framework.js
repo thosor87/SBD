@@ -36,6 +36,18 @@
     ]);
 
     /**
+     * ES³-Zonen für Matrix-Hintergrundbänder (korrespondiert mit SOV-Score via y=90-score*0.8)
+     * Future-Proof ≥76, Advanced 51-75, Managed 26-50, Initial 0-25
+     * @readonly
+     */
+    const ES3_ZONES = Object.freeze([
+        { level: 4, id: 'future-proof', top: 10, height: 19, label: 'ES³ Future-Proof', color: '#10b981' },
+        { level: 3, id: 'advanced',     top: 29, height: 20, label: 'ES³ Advanced',     color: '#3b82f6' },
+        { level: 2, id: 'managed',      top: 49, height: 20, label: 'ES³ Managed',      color: '#f59e0b' },
+        { level: 1, id: 'initial',      top: 69, height: 21, label: 'ES³ Initial',       color: '#f97316' },
+    ]);
+
+    /**
      * ES³ Level Definitionen (European Sovereign Stack Standard)
      * @readonly
      */
@@ -139,6 +151,7 @@
     window.SCC_SOV_FRAMEWORK = Object.freeze({
         SEAL_LEVELS,
         SEAL_ZONES,
+        ES3_ZONES,
         ES3_LEVELS,
         SOV_CRITERIA,
         SOV_WEIGHTS,
