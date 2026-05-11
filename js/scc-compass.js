@@ -38,6 +38,7 @@
     let currentProviders = [];
     let isPublicAccess = false;
     let activeCategories = new Set(Object.values(PROVIDER_CATEGORIES));
+    let es3OnlyFilter = false;
     let rafId = null;
 
     // DOM-Element-Cache
@@ -158,6 +159,7 @@
         // Scores berechnen und sortieren
         const scoredProviders = currentProviders
             .filter(p => activeCategories.has(p.category))
+            .filter(p => !es3OnlyFilter || SCC_DATA.getProviderES3?.(p.id)?.certified)
             .map(p => ({ ...p, score: calculateScore(p, sliderValue) }))
             .sort((a, b) => b.score - a.score);
 
@@ -282,6 +284,13 @@
             card.style.cursor = 'pointer';
             if (rankings[index] === 1) card.classList.add('winner');
 
+            // View-Mode: ES³-Einschätzung oder EU CSF SEAL
+            const viewMode = SCC_DATA.getViewMode ? SCC_DATA.getViewMode() : 'es3';
+
+            // ES³-Daten
+            const es3Data = SCC_DATA.getProviderES3 ? SCC_DATA.getProviderES3(provider.id) : null;
+            const es3DerivedLevel = SCC_DATA.getProviderES3DerivedLevel ? SCC_DATA.getProviderES3DerivedLevel(provider.id) : null;
+
             // SEAL-Level ermitteln
             const seal = SCC_DATA.getSealLevel ? SCC_DATA.getSealLevel(provider.control) : null;
             const sealBadge = seal ? `
@@ -298,16 +307,30 @@
                     <i class="fa-solid fa-circle-check"></i> C3A ${c3aScores.total}
                 </span>
             ` : '';
-            const es3Data = SCC_DATA.getProviderES3 ? SCC_DATA.getProviderES3(provider.id) : null;
-            const es3Badge = es3Data?.certified ? `
+
+            // ES³-Certified Badge (immer, unabhängig vom View-Mode)
+            const es3CertBadge = es3Data?.certified ? `
                 <span class="es3-badge es3-badge-certified" title="${es3Data.note}">
                     <i class="fa-solid fa-star"></i> ES³ certified
                 </span>` : '';
 
+            // ES³-Derived Badge (BTC-Einschätzung via SOV-Scores)
+            const es3DerivedBadge = es3DerivedLevel ? `
+                <div class="seal-badge seal-badge-es3 es3-sml-${es3DerivedLevel.id}"
+                     title="BTC-Einschätzung nach ES³ (kein offizielles ES³-Audit) — ${es3DerivedLevel.label}">
+                    <i class="fa-solid fa-star"></i>
+                    <span>${es3DerivedLevel.shortLabel}</span>
+                </div>
+            ` : '';
+
+            // Badges je View-Mode zusammensetzen
+            const primaryBadge = viewMode === 'es3' ? es3DerivedBadge : sealBadge;
+            const secondaryBadge = viewMode === 'es3' ? es3CertBadge : c3aBadge;
+
             card.innerHTML = `
                 <div class="result-header">
                     <div class="result-rank">#${rankings[index]}</div>
-                    <div class="result-badges">${sealBadge}${c3aBadge}${es3Badge}</div>
+                    <div class="result-badges">${primaryBadge}${secondaryBadge}</div>
                 </div>
                 <div class="result-name">${provider.name}</div>
                 <div class="result-description">${provider.description}</div>
@@ -887,6 +910,21 @@
     }
 
     /**
+     * Initialisiert den ES³-only Filter (zeigt nur ES³-zertifizierte Provider)
+     */
+    function initES3Filter() {
+        const btn = document.getElementById('es3FilterBtn');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+            es3OnlyFilter = !es3OnlyFilter;
+            btn.classList.toggle('is-active', es3OnlyFilter);
+            btn.setAttribute('aria-pressed', es3OnlyFilter ? 'true' : 'false');
+            track('es3-filter', { active: es3OnlyFilter });
+            updateVisualization(parseInt(elements.slider?.value || 50));
+        });
+    }
+
+    /**
      * Initialisiert Kategorie-Filter
      */
     function initializeFilters() {
@@ -951,6 +989,36 @@
         initializeFilters();
         updateVisualization(50);
         updateCustomScoresHint();
+    }
+
+    /**
+     * Initialisiert den View-Mode-Toggle (ES³-Einschätzung vs. EU CSF SEAL)
+     */
+    function initViewModeToggle() {
+        const container = document.getElementById('viewModeToggle');
+        if (!container) return;
+        const buttons = container.querySelectorAll('.audit-mode-btn');
+        const currentMode = SCC_DATA.getViewMode ? SCC_DATA.getViewMode() : 'es3';
+
+        buttons.forEach(btn => {
+            const isActive = btn.dataset.mode === currentMode;
+            btn.classList.toggle('is-active', isActive);
+            btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
+        });
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const mode = btn.dataset.mode;
+                if (!SCC_DATA.setViewMode || !SCC_DATA.setViewMode(mode)) return;
+                buttons.forEach(b => {
+                    const active = b.dataset.mode === mode;
+                    b.classList.toggle('is-active', active);
+                    b.setAttribute('aria-checked', active ? 'true' : 'false');
+                });
+                track('view-mode', { mode });
+                reloadProviders();
+            });
+        });
     }
 
     /**
@@ -1166,6 +1234,12 @@
 
         // SOV-Panel initialisieren
         initSovPanel();
+
+        // ES³-only Filter initialisieren
+        initES3Filter();
+
+        // View-Mode-Toggle (ES³ / SEAL) initialisieren
+        initViewModeToggle();
 
         // Audit-Strenge-Toggle (BSI C3A C1/C2) initialisieren
         initAuditModeToggle();

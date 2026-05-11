@@ -50,6 +50,48 @@
     }
 
     /**
+     * View-Mode-State: 'es3' (ES³-Einschätzung, Default) oder 'seal' (EU CSF SEAL)
+     */
+    const VIEW_MODE_STORAGE_KEY = 'sbd-view-mode';
+    let _viewMode = 'es3';
+    try {
+        const stored = window.localStorage?.getItem(VIEW_MODE_STORAGE_KEY);
+        if (stored === 'seal' || stored === 'es3') _viewMode = stored;
+    } catch (e) { /* localStorage nicht verfügbar */ }
+
+    function getViewMode() { return _viewMode; }
+    function setViewMode(mode) {
+        const m = (mode === 'seal') ? 'seal' : 'es3';
+        if (m === _viewMode) return false;
+        _viewMode = m;
+        try { window.localStorage?.setItem(VIEW_MODE_STORAGE_KEY, m); } catch (e) {}
+        return true;
+    }
+
+    /**
+     * Leitet ein ES³-SML-Level aus den SOV-Scores eines Providers ab (Weakest-Link).
+     * Ergebnis ist eine BTC-Einschätzung, kein offizielles ES³-Audit.
+     * @param {string} providerId
+     * @returns {Object|null} ES3_LEVELS-Eintrag oder null
+     */
+    function getProviderES3DerivedLevel(providerId) {
+        const sovScores = ASSESS.computeProviderSovScores(providerId, _auditMode);
+        if (!sovScores) return null;
+        // d1→sov1, d2→sov2, d3→sov3, d4→sov4, d5→sov5, d6→sov6, d7→sov7, d8→sov8
+        const scores = [
+            sovScores.sov1, sovScores.sov2, sovScores.sov3, sovScores.sov4,
+            sovScores.sov5, sovScores.sov6, sovScores.sov7, sovScores.sov8,
+        ].filter(s => s != null && s !== undefined);
+        if (!scores.length) return null;
+        const overall = Math.min(...scores);
+        const L = FRAMEWORK.ES3_LEVELS;
+        if (overall >= 76) return L.FUTURE_PROOF;
+        if (overall >= 51) return L.ADVANCED;
+        if (overall >= 26) return L.MANAGED;
+        return L.INITIAL;
+    }
+
+    /**
      * Berechnet die Provider-Liste mit Kontrolle-Score gemäß aktuellem Audit-Mode.
      * Wird bei jedem Aufruf neu gerechnet, damit ein Mode-Wechsel sofort durchschlägt.
      * @param {string} [mode] - Optional: expliziter Mode, sonst aktueller AUDIT_MODE
@@ -148,6 +190,11 @@
         getAuditMode,
         setAuditMode,
         getProviders,              // mode-abhängige Provider-Liste
+
+        // View-Mode (SBD: ES³-Einschätzung vs. SEAL)
+        getViewMode,
+        setViewMode,
+        getProviderES3DerivedLevel,
 
         // Neu in v4.0.0: BSI C3A
         C3A_VERSION:           C3A.C3A_VERSION,

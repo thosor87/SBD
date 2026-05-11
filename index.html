@@ -127,7 +127,7 @@
     </script>
 
     <!-- Umami Analytics (privacy-first, DSGVO-konform, self-hosted) -->
-    <script defer src="https://analytics.soring.de/script.js" data-website-id="7f563bf0-9a42-4b8b-bd1c-a4c6f09e7bda"></script>
+    <script defer src="https://analytics.soring.de/script.js" data-website-id="52da7cf8-9934-4d92-ad55-8fc72a64fc28"></script>
 </head>
 <body>
     <!-- Skip Links for Accessibility -->
@@ -384,27 +384,41 @@
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">Ihre Cloud-Strategie</h2>
-                        <div class="audit-mode-toggle" id="auditModeToggle" role="radiogroup" aria-label="BSI C3A Audit-Strenge">
-                            <span class="audit-mode-toggle-label">Audit-Strenge:</span>
-                            <button type="button" class="audit-mode-btn is-active" data-mode="c1" role="radio" aria-checked="true"
-                                    title="C1 — EU-Bezug genügt: Kriterien gelten als erfüllt, wenn EU- oder DE-Variante umgesetzt ist">
-                                <i class="fa-solid fa-globe-europe"></i>
-                                <span>EU (C1)</span>
-                            </button>
-                            <button type="button" class="audit-mode-btn" data-mode="c2" role="radio" aria-checked="false"
-                                    title="C2 — Deutscher Bezug erforderlich: Kriterien mit C1/C2-Varianten gelten nur als voll erfüllt, wenn die DE-Variante explizit umgesetzt ist (BSI-Strenge für Bundesverwaltung/KRITIS)">
-                                <i class="fa-solid fa-flag"></i>
-                                <span>Deutschland (C2)</span>
-                            </button>
+                        <div class="card-header-toggles">
+                            <div class="audit-mode-toggle" id="viewModeToggle" role="radiogroup" aria-label="Ansicht">
+                                <span class="audit-mode-toggle-label">Ansicht:</span>
+                                <button type="button" class="audit-mode-btn is-active" data-mode="es3" role="radio" aria-checked="true"
+                                        title="ES³-Einschätzung: BTC-Ableitung aus SOV-Scores – kein offizielles ES³-Audit">
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>ES³</span>
+                                </button>
+                                <button type="button" class="audit-mode-btn" data-mode="seal" role="radio" aria-checked="false"
+                                        title="EU CSF SEAL: Offizielle EU Cloud Sovereignty Framework Level">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    <span>SEAL</span>
+                                </button>
+                            </div>
+                            <div class="audit-mode-toggle" id="auditModeToggle" role="radiogroup" aria-label="BSI C3A Audit-Strenge">
+                                <span class="audit-mode-toggle-label">Audit-Strenge:</span>
+                                <button type="button" class="audit-mode-btn is-active" data-mode="c1" role="radio" aria-checked="true"
+                                        title="C1 — EU-Bezug genügt: Kriterien gelten als erfüllt, wenn EU- oder DE-Variante umgesetzt ist">
+                                    <i class="fa-solid fa-globe-europe"></i>
+                                    <span>EU (C1)</span>
+                                </button>
+                                <button type="button" class="audit-mode-btn" data-mode="c2" role="radio" aria-checked="false"
+                                        title="C2 — Deutscher Bezug erforderlich: Kriterien mit C1/C2-Varianten gelten nur als voll erfüllt, wenn die DE-Variante explizit umgesetzt ist (BSI-Strenge für Bundesverwaltung/KRITIS)">
+                                    <i class="fa-solid fa-flag"></i>
+                                    <span>Deutschland (C2)</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <p class="card-description">
                         Digitale Souveränität ist kein Zufall – sie entsteht durch bewusste Entscheidungen. Verschieben Sie den Regler,
                         um die Balance zwischen Kontrolle und Leistungsfähigkeit zu bestimmen — je nach Ihrer Ausrichtung identifizieren
-                        wir den optimalen Cloud-Ansatz. Jede Provider-Karte verlinkt auf das SEAL-Level (EU CSF) und einen aggregierten
-                        BSI-C3A-Score; per Klick erscheinen die Detailbewertungen aller 30 C3A-Kriterien sowie die Quellenbelege.
-                        Mit dem <strong>Audit-Strenge-Toggle</strong> rechts oben wechseln Sie zwischen EU-Bezug (C1) und
-                        deutschem Bezug (C2) — letzteres senkt automatisch alle Provider, die nur EU-Variante erfüllen.
+                        wir den optimalen Cloud-Ansatz. Im <strong>ES³-Modus</strong> sehen Sie die BTC-Einschätzung der Provider nach dem
+                        European Sovereign Stack Standard (9 Dimensionen, Weakest-Link-Prinzip) — nur STACKIT ist offiziell ES³-zertifiziert (BDO-auditiert).
+                        Im <strong>SEAL-Modus</strong> erscheinen die EU CSF SEAL-Level und BSI-C3A-Scores.
                         <em>(Hinweis: Das SaaS-Portfolio der Cloud-Anbieter wurde in der Positionierung nicht berücksichtigt.)</em>
                     </p>
                 </div>
@@ -436,6 +450,15 @@
 
                         <div class="current-value-display">
                             <span id="valueDisplay">Ausgewogen (50:50)</span>
+                        </div>
+
+                        <!-- ES³-certified Filter -->
+                        <div class="es3-filter-row">
+                            <button type="button" id="es3FilterBtn" class="es3-filter-btn" aria-pressed="false"
+                                    title="Zeigt nur Provider mit offizieller ES³-Zertifizierung (aktuell: STACKIT)">
+                                <i class="fa-solid fa-star"></i>
+                                <span>Nur ES³ certified</span>
+                            </button>
                         </div>
 
                         <!-- Category Filter -->
