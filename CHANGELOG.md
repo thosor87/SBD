@@ -6,19 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [1.1.0] – 2026-05-11
-
-### Added
-
-- **ES³/SEAL View Toggle**: Umschalter im Card-Header (Default: ES³). Im ES³-Modus zeigt jede Provider-Card ein abgeleitetes ES³-SML-Level (Initial / Managed / Advanced / Future-Proof) auf Basis der SOV-1…8-Scores (Weakest-Link). Nur STACKIT hat zusätzlich den „ES³ certified"-Badge (BDO-auditiert). Im SEAL-Modus erscheinen EU CSF SEAL-Level und BSI-C3A-Score wie bisher.
-- **ES³-certified Filter**: Button „Nur ES³ certified" über den Kategorie-Filtern – blendet alle nicht-zertifizierten Provider aus (aktuell verbleiben: STACKIT).
-- **Offizielles STACKIT-Logo**: SVG aus dem offiziellen STACKIT Brand-Kit ersetzt den bisherigen Platzhalter.
-- **Umami Analytics**: website-id auf SBD-spezifisches Tracking aktualisiert.
-- **`getProviderES3DerivedLevel(id)`** in `window.SCC_DATA`: Leitet das ES³-SML-Level aus den SOV-Scores eines Providers ab – BTC-Einschätzung, kein offizielles ES³-Audit.
-- **`getViewMode()` / `setViewMode()`** in `window.SCC_DATA`: View-Mode-State mit `localStorage`-Persistenz.
-
----
-
 ## [1.0.0] – 2026-05-11
 
 Initial release – Sovereignty by Design Platform.
@@ -26,11 +13,14 @@ Initial release – Sovereignty by Design Platform.
 ### Added
 
 - **3-Step-Navigation**: Geführter Flow Provider wählen → Organisation bewerten → Ergebnis
-- **Co-Branding**: BTC AG × STACKIT Header
+- **Co-Branding**: BTC AG × STACKIT Header mit offiziellem STACKIT Brand-Kit Logo
 - **ES³-Assessment** (Step 2): 9 Souveränitätsdimensionen × 3 Ebenen (Reg/Org/Tech), 27 Fragen
 - **SML-Scoring** mit Weakest-Link-Prinzip: Initial / Managed / Advanced / Future-Proof
 - **Provider-Match** (Step 3): STACKIT → positiv (ES³ certified, BDO-auditiert), andere → neutral
 - **ES³-Badge**: STACKIT in Result-Card, Hover-Popup und SOV-Panel
+- **ES³/SEAL View Toggle** (Step 1): Umschalter im Card-Header, Default ES³. Im ES³-Modus zeigt jede Provider-Card ein abgeleitetes ES³-SML-Level aus den SOV-1…8-Scores (Weakest-Link, BTC-Einschätzung – kein offizielles ES³-Audit). Im SEAL-Modus: EU CSF SEAL-Level + BSI-C3A-Score.
+- **ES³-certified Filter**: Button „Nur ES³ certified" – blendet alle nicht-zertifizierten Provider aus (aktuell: nur STACKIT zertifiziert).
+- **`getProviderES3DerivedLevel(id)`** und **`getViewMode()` / `setViewMode()`** in `window.SCC_DATA`
 - **29 Unit-Tests** (TDD) für alle Logik-Module (`sml-assessment`, `es3-questions`, `provider-match`)
 
 ### Based on
