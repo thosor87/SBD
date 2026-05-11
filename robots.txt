@@ -1,0 +1,19 @@
+# robots.txt for Sovereign Cloud Compass
+# https://btc-ag.github.io/SCC/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://btc-ag.github.io/SCC/sitemap.xml
+
+# Disallow crawling of non-essential files
+Disallow: /*.json$
+Disallow: /Archive/
+
+# Crawl-delay for specific bots
+User-agent: GPTBot
+Crawl-delay: 5
+
+User-agent: CCBot
+Disallow: /

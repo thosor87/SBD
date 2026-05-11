@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Bewertungskriterien & Methodik - Sovereign Cloud Compass | BTC AG</title>
+    <meta name="description" content="Transparente Bewertungslogik für Cloud-Provider nach EU Cloud Sovereignty Framework (SEAL-Levels 1-4) und BSI C3A v1.0 — ~30 prüfbare Kriterien je Provider mit Quellenbelegen für AWS, Azure, STACKIT, IONOS, T Cloud, SAP CI und weitere.">
+    <meta name="keywords" content="Cloud Bewertungskriterien, Cloud Provider Vergleich, DSGVO Konformität, Cloud Souveränität Methodik, Cloud Compliance">
+    <meta name="author" content="BTC AG">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://btc-ag.github.io/SCC/evaluation-criteria.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://btc-ag.github.io/SCC/evaluation-criteria.html">
+    <meta property="og:title" content="Bewertungskriterien für Cloud-Provider - Sovereign Cloud Compass">
+    <meta property="og:description" content="Methodik nach EU Cloud Sovereignty Framework (SEAL) und BSI C3A v1.0. ~30 prüfbare Kriterien je Provider, belegt mit offiziellen Quellen.">
+    <meta property="og:image" content="https://btc-ag.github.io/SCC/og-image.png">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="BTC AG Cloud Solutions">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://btc-ag.github.io/SCC/evaluation-criteria.html">
+    <meta name="twitter:title" content="Bewertungskriterien - Sovereign Cloud Compass">
+    <meta name="twitter:description" content="EU SEAL & BSI C3A v1.0 — die Methodik hinter dem Sovereign Cloud Compass.">
+    <meta name="twitter:image" content="https://btc-ag.github.io/SCC/og-image.png">
+
+    <!-- Favicon & Theme -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#5AA6E7">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Critical CSS (Above-the-fold styles) -->
+    <style>
+        :root{--btc-primary:#5AA6E7;--btc-heading:#1a1a2e;--text-primary:#1d1d1f;--text-secondary:#6e6e73;--bg-primary:#ffffff;--bg-secondary:#f5f5f7;--border-color:#d2d2d7}
+        [data-theme="dark"]{--btc-heading:#ffffff;--text-primary:#f5f5f7;--text-secondary:#98989d;--bg-primary:#1d1d1f;--bg-secondary:#2d2d2d;--border-color:#424245}
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth}
+        body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.5}
+        .skip-link{position:absolute;top:-50px;left:0;background:var(--btc-primary);color:#fff;padding:0.75rem 1.5rem;text-decoration:none;z-index:100000;font-weight:600;border-radius:0 0 8px 0;transition:top 0.3s}
+        .skip-link:focus{top:0;outline:3px solid var(--btc-primary);outline-offset:2px}
+        .header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:#fff;padding:2rem 0 3rem}
+        .container{max-width:1400px;margin:0 auto;padding:0 1.5rem}
+        .header-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin-bottom:0.5rem}
+    </style>
+
+    <!-- Font Awesome (async loading for performance) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <!-- Base Styles from SCC -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Criteria Page Styles -->
+    <link rel="stylesheet" href="criteria-styles.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Bewertungskriterien & Methodik - Sovereign Cloud Compass",
+      "description": "Methodik des Sovereign Cloud Compass: Bewertung nach EU Cloud Sovereignty Framework (SEAL-Levels 1-4) und BSI C3A v1.0 (Criteria enabling Cloud Computing Autonomy). ~30 prüfbare Kriterien je Provider mit Quellenbelegen.",
+      "author": {
+        "@type": "Organization",
+        "name": "BTC AG",
+        "url": "https://www.btc-ag.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BTC AG",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://btc-ag.github.io/SCC/og-image.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://btc-ag.github.io/SCC/evaluation-criteria.html"
+      }
+    }
+    </script>
+
+    <!-- Umami Analytics (privacy-first, DSGVO-konform, self-hosted) -->
+    <script defer src="https://analytics.soring.de/script.js" data-website-id="7f563bf0-9a42-4b8b-bd1c-a4c6f09e7bda"></script>
+</head>
+<body>
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav-drawer" id="mobileNavDrawer">
+        <div class="drawer-header">
+            <img src="btc-logo.png" alt="BTC AG" class="drawer-logo" width="140" height="35">
+            <div class="drawer-header-actions">
+                <div class="theme-toggle" id="drawerThemeToggle" role="button" tabindex="0" aria-label="Toggle dark mode"></div>
+                <button class="drawer-close" id="drawerClose" aria-label="Menü schließen">
+                    &times;
+                </button>
+            </div>
+        </div>
+        <div class="drawer-content">
+            <span class="drawer-section-label">Navigation</span>
+            <a href="index.html" class="drawer-nav-link">
+                <i class="fas fa-home"></i>
+                Zurück zum Compass
+            </a>
+            <a href="https://btc-ag.github.io/SAA/" class="drawer-nav-link">
+                <i class="fas fa-compass"></i>
+                Architecture Advisor
+            </a>
+            <div class="drawer-divider"></div>
+            <span class="drawer-section-label">Auf dieser Seite</span>
+            <a href="#uebersicht" class="drawer-nav-link drawer-internal-link">
+                <i class="fas fa-info-circle"></i>
+                Übersicht
+            </a>
+            <a href="#kontrolle" class="drawer-nav-link drawer-internal-link">
+                <i class="fas fa-lock"></i>
+                Kontrolle & Souveränität
+            </a>
+            <a href="#c3a" class="drawer-nav-link drawer-internal-link">
+                <i class="fas fa-shield-halved"></i>
+                BSI C3A
+            </a>
+            <a href="#sov7" class="drawer-nav-link drawer-internal-link">
+                <i class="fas fa-shield-alt"></i>
+                SOV-7 Compliance
+            </a>
+            <a href="#leistung" class="drawer-nav-link drawer-internal-link">
+                <i class="fas fa-bolt"></i>
+                Leistung & Performance
+            </a>
+            <a href="#provider" class="drawer-nav-link drawer-internal-link">
+                <i class="fas fa-cloud"></i>
+                Provider-Details
+            </a>
+            <div class="drawer-divider"></div>
+            <span class="drawer-section-label">Kontakt</span>
+            <a href="https://outlook.office.com/book/BTCAGManagedCloudServices@btcag.onmicrosoft.com/s/U1HPjhE9b0qdW-uTHThOSw2?ismsaljsauthenabled" target="_blank" class="drawer-nav-link primary">
+                <i class="fas fa-calendar-check"></i>
+                Beratungstermin
+            </a>
+        </div>
+    </nav>
+
+    <div class="protected-content unlocked">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <nav class="header-nav">
+                    <a href="#" class="logo">
+                        <img src="btc-logo.png" alt="BTC AG - Zur Startseite" class="logo-img" width="120" height="30">
+                    </a>
+                    <div class="header-actions">
+                        <!-- Desktop Navigation -->
+                        <div class="desktop-nav">
+                            <div class="theme-toggle" id="desktopThemeToggle" role="button" tabindex="0" aria-label="Toggle dark mode"></div>
+                            <a href="index.html" class="btn btn-secondary">
+                                <i class="fa-solid fa-arrow-left"></i> Zurück zum Compass
+                            </a>
+                            <a href="https://btc-ag.github.io/SAA/" class="btn btn-secondary">
+                                Architecture Advisor
+                            </a>
+                            <a href="https://outlook.office.com/book/BTCAGManagedCloudServices@btcag.onmicrosoft.com/s/U1HPjhE9b0qdW-uTHThOSw2?ismsaljsauthenabled" target="_blank" class="btn btn-primary">
+                                Beratung
+                            </a>
+                        </div>
+                        <!-- Mobile Burger Menu Toggle -->
+                        <button class="burger-menu-toggle" id="burgerMenuToggle" aria-label="Menü öffnen">
+                            <span class="burger-icon">
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
+                            </span>
+                        </button>
+                    </div>
+                </nav>
+                <h1 class="header-title">Bewertungskriterien & Methodik</h1>
+                <p class="header-subtitle">Transparente Bewertungslogik nach EU Cloud Sovereignty Framework (SEAL) und BSI C3A v1.0 — mit Quellenbelegen je Provider</p>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="main" id="main-content" role="main" aria-label="Hauptinhalt">
+            <div class="container criteria-page-container">
+
+                <!-- Desktop Navigation -->
+                <div class="criteria-nav">
+                    <a href="#uebersicht" class="criteria-nav-link active">Übersicht</a>
+                    <a href="#kontrolle" class="criteria-nav-link">Kontrolle & Souveränität</a>
+                    <a href="#c3a" class="criteria-nav-link">BSI C3A</a>
+                    <a href="#sov7" class="criteria-nav-link">SOV-7 Compliance</a>
+                    <a href="#leistung" class="criteria-nav-link">Leistung & Performance</a>
+                    <a href="#provider" class="criteria-nav-link">Provider-Details</a>
+                </div>
+
+                <!-- Mobile Section Navigation (Tabs) - Tablet -->
+                <div class="mobile-criteria-tabs" id="mobileCriteriaTabs">
+                    <div class="mobile-criteria-tabs-inner">
+                        <a href="#uebersicht" class="mobile-criteria-tab active" data-section="uebersicht">Übersicht</a>
+                        <a href="#kontrolle" class="mobile-criteria-tab" data-section="kontrolle">Kontrolle</a>
+                        <a href="#c3a" class="mobile-criteria-tab" data-section="c3a">C3A</a>
+                        <a href="#sov7" class="mobile-criteria-tab" data-section="sov7">SOV-7</a>
+                        <a href="#leistung" class="mobile-criteria-tab" data-section="leistung">Leistung</a>
+                        <a href="#provider" class="mobile-criteria-tab" data-section="provider">Provider</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Section Navigation (Dropdown) - Phone -->
+                <div class="mobile-section-nav" id="mobileSectionNav">
+                    <select class="mobile-section-selector" id="mobileSectionSelector" onchange="navigateToSection(this.value)">
+                        <option value="uebersicht">Übersicht</option>
+                        <option value="kontrolle">Kontrolle & Souveränität</option>
+                        <option value="c3a">BSI C3A</option>
+                        <option value="sov7">SOV-7 Compliance</option>
+                        <option value="leistung">Leistung & Performance</option>
+                        <option value="provider">Provider-Details</option>
+                    </select>
+                </div>
+
+                <!-- Framework-Glossar (ausklappbar) -->
+                <details class="framework-glossary" open>
+                    <summary class="framework-glossary-summary">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span class="framework-glossary-title">Was bedeuten EU CSF, SEAL und BSI C3A?</span>
+                        <span class="framework-glossary-hint">Klicken zum Aufklappen</span>
+                        <i class="fa-solid fa-chevron-down framework-glossary-chevron"></i>
+                    </summary>
+                    <div class="framework-glossary-grid">
+                        <div class="framework-card">
+                            <div class="framework-card-icon" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
+                                <i class="fa-solid fa-flag"></i>
+                            </div>
+                            <h4 class="framework-card-title">EU Cloud Sovereignty Framework (CSF)</h4>
+                            <p class="framework-card-text">
+                                Referenz-Dokument der EU-Kommission. Definiert <strong>8 SOV-Kategorien</strong>
+                                (Strategic, Legal, Data, Operational, Supply Chain, Technology, Security, Sustainability)
+                                mit gewichteten Anteilen. Das CSF ist kein formeller Standard, sondern eine
+                                Klassifizierungs-Grundlage.
+                            </p>
+                            <a href="https://commission.europa.eu/document/09579818-64a6-4dd5-9577-446ab6219113_en"
+                               target="_blank" rel="noopener" class="framework-card-link">
+                                EU-Kommission: Referenz-Dokument <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                        <div class="framework-card">
+                            <div class="framework-card-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h4 class="framework-card-title">SEAL — Sovereignty Effective Assurance Levels</h4>
+                            <p class="framework-card-text">
+                                Vierstufige Reifegrad-Klassifizierung des EU CSF. Zeigt auf einen Blick die
+                                Souveränitäts-Stufe je Provider.
+                            </p>
+                            <ul class="framework-card-list">
+                                <li><span class="seal-mini seal-mini-4">SEAL-4</span> Vollständige Souveränität (≥ 90)</li>
+                                <li><span class="seal-mini seal-mini-3">SEAL-3</span> Digital Resilience (≥ 75)</li>
+                                <li><span class="seal-mini seal-mini-2">SEAL-2</span> Data Sovereignty (≥ 55)</li>
+                                <li><span class="seal-mini seal-mini-1">SEAL-1</span> Basistransparenz (≥ 40)</li>
+                            </ul>
+                        </div>
+                        <div class="framework-card">
+                            <div class="framework-card-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                                <i class="fa-solid fa-list-check"></i>
+                            </div>
+                            <h4 class="framework-card-title">BSI C3A v1.0 (27.04.2026)</h4>
+                            <p class="framework-card-text">
+                                <em>Criteria enabling Cloud Computing Autonomy</em> — operationalisiert das EU CSF
+                                mit <strong>~30 prüfbaren Kriterien</strong> in den Kategorien SOV-1 bis SOV-6.
+                                <strong>C1</strong> verlangt EU-Bezug, <strong>C2</strong> deutschen Bezug.
+                                Sicherheit (SOV-7) wird über BSI C5:2026 abgedeckt; Nachhaltigkeit (SOV-8)
+                                ist nicht Teil von C3A.
+                            </p>
+                            <a href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/CloudComputing/C3A_Cloud_Computing_Autonomy.pdf"
+                               target="_blank" rel="noopener" class="framework-card-link">
+                                BSI: C3A v1.0 PDF <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Übersicht -->
+                <section id="uebersicht" class="criteria-section">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-info-circle"></i> Wie funktioniert die Bewertung?
+                    </h2>
+
+                    <!-- Experten-Grundlage -->
+                    <div class="intro-card">
+                        <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-users"></i> Experten-Bewertungen</h3>
+                        <p>
+                            Die Bewertungen basieren auf umfassenden Experten-Einschätzungen der BTC für jeden betrachteten Cloud-Provider.
+                            Alle beteiligten Experten verfügen jeweils über mehr als 10 Jahre Beratungs-, Betriebs- und Service-Erfahrung mit
+                            verschiedenen Cloud-Providern, praktisch nachgewiesene Erfahrung mit mehreren verschiedenen Cloud-Angeboten sowie
+                            geprüfte und vielfach zertifizierte Expertise in Cloud-Beratung und -Architektur.
+                        </p>
+                    </div>
+
+                    <!-- Bewertungskriterien -->
+                    <div class="intro-card" style="margin-top: 1.5rem;">
+                        <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-clipboard-list"></i> Bewertungskriterien</h3>
+                        <p>
+                            Die betrachteten Dimensionen "Kontrolle" und "Leistungsfähigkeit" wurden anhand von einer Vielzahl von Kriterien bewertet,
+                            wie der Gesellschaftsstruktur, externen Abhängigkeiten (Hardware, Software, Unternehmensstruktur, Rechenzentren, Lizenzen,
+                            Support, Wartung), rechtlicher Souveränität und geopolitischer Resistenz, sowie dem Umfang und Reifegrad der Service-Landschaft,
+                            der Eignung für moderne Cloud-Architekturen, Innovationszyklen, technische und organisatorische Souveränitätskonstrukte sowie
+                            Entwicklerfreundlichkeit und der Ökosystem-Stärke.
+                        </p>
+                        <p style="margin-top: 1rem;">
+                            Als initiale Grundlage diente der Sovereign Cloud Benchmark 2025 von cloud ahead,
+                            welcher durch die Experten-Bewertungen, verschiedene Befragungen sowie weitere fundierte Einschätzungen ergänzt wurde.
+                        </p>
+                    </div>
+
+                    <!-- Berechnungsmethodik -->
+                    <div class="intro-card" style="margin-top: 1.5rem;">
+                        <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-calculator"></i> Berechnungsmethodik</h3>
+                        <p>
+                            Die Bewertung im Sovereign Cloud Compass erfolgt in <strong>vier Aggregations-Stufen</strong>
+                            — von prüfbaren Einzelkriterien bis zum Gesamt-Score, der die Sortierung der Provider in der Matrix bestimmt.
+                        </p>
+
+                        <!-- Stufe 1 -->
+                        <div class="formula-box" style="margin-top: 1rem;">
+                            <h4>Stufe 1 — Einzelkriterium</h4>
+                            <p style="margin: 0.5rem 0; font-size: 0.9rem;">
+                                Jedes der ~30 BSI-C3A-Kriterien und der 10 SOV-7-Compliance-Kriterien
+                                wird mit einer von vier Bewertungen versehen:
+                            </p>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.7;">
+                                <li><strong style="color: #166534;">Erfüllt (pass)</strong> — 100 Punkte</li>
+                                <li><strong style="color: #92400e;">Teilweise (partial)</strong> — 50 Punkte</li>
+                                <li><strong style="color: #991b1b;">Nicht erfüllt (fail)</strong> — 0 Punkte</li>
+                                <li><strong style="color: #6b7280;">Unbekannt (unknown)</strong> — 0 Punkte</li>
+                            </ul>
+                        </div>
+
+                        <!-- Stufe 2 -->
+                        <div class="formula-box" style="margin-top: 1rem;">
+                            <h4>Stufe 2 — SOV-Score (pro Kategorie)</h4>
+                            <p style="margin: 0.5rem 0; font-size: 0.9rem;">
+                                Der Score je SOV-Kategorie ist der <strong>arithmetische Mittelwert</strong> der zugehörigen Einzelkriterien:
+                            </p>
+                            <code class="formula" style="font-size: 0.85rem; margin: 0.5rem 0;">
+                                SOV-X = Σ (Punkte je Kriterium) / Anzahl Kriterien
+                            </code>
+                            <p style="margin-top: 0.85rem; font-size: 0.85rem;">
+                                <em>Beispiel: AWS European Sovereign Cloud, SOV-1 Strategie (4 Kriterien)</em>
+                            </p>
+                            <table style="width: 100%; font-size: 0.85rem; margin-top: 0.5rem; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <th style="text-align: left; padding: 0.4rem 0.3rem;">Kriterium</th>
+                                        <th style="text-align: left; padding: 0.4rem 0.3rem;">Bewertung</th>
+                                        <th style="text-align: right; padding: 0.4rem 0.3rem;">EU-Modus (C1)</th>
+                                        <th style="text-align: right; padding: 0.4rem 0.3rem;">DE-Modus (C2)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="padding: 0.3rem;">SOV-1-01 Jurisdiction</td><td>pass · C1</td><td style="text-align:right">100</td><td style="text-align:right; color:#d97706"><strong>50</strong> ⬇</td></tr>
+                                    <tr><td style="padding: 0.3rem;">SOV-1-02 Registered Office</td><td>pass · C2</td><td style="text-align:right">100</td><td style="text-align:right">100</td></tr>
+                                    <tr><td style="padding: 0.3rem;">SOV-1-03 Effective Control</td><td>partial · C1</td><td style="text-align:right">50</td><td style="text-align:right">50</td></tr>
+                                    <tr><td style="padding: 0.3rem;">SOV-1-04 Control Change</td><td>pass</td><td style="text-align:right">100</td><td style="text-align:right">100</td></tr>
+                                    <tr style="border-top: 1px solid var(--border-color); font-weight: 700;">
+                                        <td colspan="2" style="padding: 0.4rem 0.3rem;">SOV-1 = Σ / 4</td>
+                                        <td style="text-align:right; padding: 0.4rem 0.3rem;">88</td>
+                                        <td style="text-align:right; padding: 0.4rem 0.3rem;">75</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Stufe 3 -->
+                        <div class="formula-box" style="margin-top: 1rem;">
+                            <h4>Stufe 3 — Kontrolle und C3A-Total</h4>
+                            <p style="margin: 0.5rem 0; font-size: 0.9rem;">
+                                Aus den SOV-Werten werden zwei verschiedene Aggregate gebildet:
+                            </p>
+                            <p style="font-size: 0.85rem; margin-top: 0.6rem;">
+                                <strong>BSI C3A-Total</strong> — ungewichteter Mittelwert über die <strong>6 SOV-Buckets aus C3A</strong> (SOV-1 bis SOV-6):
+                            </p>
+                            <code class="formula" style="font-size: 0.8rem; margin: 0.4rem 0;">
+                                C3A-Total = (SOV-1 + SOV-2 + … + SOV-6) / 6
+                            </code>
+                            <p style="font-size: 0.85rem; margin-top: 0.85rem;">
+                                <strong>Kontrolle</strong> — gewichteter Mittelwert über alle <strong>8 SOV-Dimensionen</strong> gemäß EU-CSF-Gewichtung:
+                            </p>
+                            <code class="formula" style="font-size: 0.8rem; margin: 0.4rem 0;">
+                                Kontrolle = 0.15·SOV-1 + 0.10·SOV-2 + 0.10·SOV-3 + 0.15·SOV-4 + 0.20·SOV-5 + 0.15·SOV-6 + 0.10·SOV-7 + 0.05·SOV-8
+                            </code>
+                            <p style="font-size: 0.8rem; margin-top: 0.6rem; color: var(--text-secondary);">
+                                <strong>Datenquellen je SOV:</strong> SOV-1…6 aus BSI C3A, SOV-7 aus dem SCC-eigenen
+                                10-Punkte-Compliance-Katalog, SOV-8 als Experten-Wert (kein BSI-Mandat).
+                            </p>
+                        </div>
+
+                        <!-- Stufe 4 -->
+                        <div class="formula-box" style="margin-top: 1rem;">
+                            <h4>Stufe 4 — Gesamt-Score in der Matrix</h4>
+                            <p style="margin: 0.5rem 0; font-size: 0.9rem;">
+                                Der Gesamt-Score je Provider entsteht aus der Slider-gesteuerten Gewichtung
+                                zwischen Kontrolle und Leistung:
+                            </p>
+                            <code class="formula">
+                                Gesamt = Kontrolle × (1 - s) + Leistung × s
+                            </code>
+                            <p style="font-size: 0.85rem; margin-top: 0.6rem;">
+                                wobei <strong>s</strong> der Slider-Wert ist (0 = volle Kontrolle, 1 = volle Leistung).
+                            </p>
+                        </div>
+
+                        <!-- C1/C2-Mode -->
+                        <div class="formula-box" style="margin-top: 1rem; border-left: 3px solid #f59e0b; background: rgba(245, 158, 11, 0.05);">
+                            <h4 style="color: #b45309;"><i class="fa-solid fa-flag"></i> Audit-Strenge C1 / C2 (BSI-konform)</h4>
+                            <p style="margin: 0.5rem 0; font-size: 0.9rem;">
+                                Viele BSI-C3A-Kriterien existieren in zwei Schärfegraden:
+                                <strong>C1</strong> verlangt EU-Bezug, <strong>C2</strong> deutschen Bezug.
+                                Im SCC kann zwischen beiden Modi umgeschaltet werden:
+                            </p>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.7;">
+                                <li><strong>EU-Modus (C1, Default):</strong> Kriterium gilt als „erfüllt", wenn EU- oder DE-Variante umgesetzt ist.</li>
+                                <li><strong>DE-Modus (C2):</strong> Kriterien mit C1/C2-Varianten gelten nur dann als voll erfüllt, wenn <strong>explizit C2</strong> umgesetzt ist. Provider, die nur C1 erfüllen, werden für dieses Kriterium auf <strong>50 Punkte</strong> reduziert (statt 100).</li>
+                            </ul>
+                            <p style="font-size: 0.85rem; margin-top: 0.6rem; color: var(--text-secondary);">
+                                Im Beispiel oben sieht man die Wirkung: AWS ESC fällt bei SOV-1 von 88 (C1) auf 75 (C2),
+                                weil SOV-1-01 nur als C1 dokumentiert ist.
+                            </p>
+                        </div>
+
+                        <p class="note">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <strong>Wichtig:</strong> Die Slider-Gewichtung Kontrolle/Leistung lässt sich im
+                            Compass jederzeit anpassen. Den Audit-Modus (C1/C2) wählen Sie über das
+                            Toggle in der Strategie-Card.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Kontrolle & Souveränität -->
+                <section id="kontrolle" class="criteria-section">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-lock"></i> Kontrolle & Souveränität
+                    </h2>
+                    <div class="criteria-card">
+                        <div class="criteria-intro">
+                            <p>
+                                Der <strong>Kontrolle-Score</strong> wird automatisch aus den <strong>8 SOV-Kriterien</strong>
+                                (Sovereignty Objectives) des <strong>EU Cloud Sovereignty Frameworks</strong> berechnet.
+                                Die Gewichtung orientiert sich an diesem Referenz-Dokument der EU-Kommission:
+                            </p>
+                            <div class="sov-weights-overview" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; margin: 1rem 0; font-size: 0.85rem;">
+                                <span><strong>SOV-1</strong> Strategie: 15%</span>
+                                <span><strong>SOV-2</strong> Rechtlich: 10%</span>
+                                <span><strong>SOV-3</strong> Daten/AI: 10%</span>
+                                <span><strong>SOV-4</strong> Operativ: 15%</span>
+                                <span><strong>SOV-5</strong> Lieferkette: <strong style="color: var(--btc-primary);">20%</strong></span>
+                                <span><strong>SOV-6</strong> Technologie: 15%</span>
+                                <span><strong>SOV-7</strong> Sicherheit: 10%</span>
+                                <span><strong>SOV-8</strong> Nachhaltigkeit: 5%</span>
+                            </div>
+                            <p class="note" style="margin-top: 1rem;">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Das <a href="https://commission.europa.eu/document/09579818-64a6-4dd5-9577-446ab6219113_en" target="_blank" rel="noopener" style="color: var(--btc-primary);">EU Cloud Sovereignty Framework</a> ist ein <strong>Referenz-Dokument der EU-Kommission</strong>, kein formell verabschiedeter Standard. Es wurde ursprünglich im Kontext einer spezifischen EU-Kommissions-Ausschreibung entwickelt. BSI und ANSSI erarbeiten derzeit eigene Interpretationen. Für konkrete Beschaffungsentscheidungen empfehlen wir, die eigenen organisatorischen Anforderungen vorab zu definieren.
+                            </p>
+                            <p class="note" style="margin-top: 0.75rem; background: rgba(99, 102, 241, 0.06); border-left-color: #6366f1;">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                <strong>Ab v4.0.0:</strong> Die SOV-Werte werden nicht mehr als Experten-Schätzung
+                                pro Kategorie gesetzt, sondern <strong>auditierbar berechnet</strong>:
+                                SOV-1…6 aus den 30 BSI-C3A-Einzelkriterien, SOV-7 aus dem
+                                10-Punkte-Compliance-Katalog, SOV-8 als Experten-Wert. Die folgende
+                                Tabelle zeigt nur, wie typische Score-Bandbreiten provider-typisch aussehen —
+                                die konkreten Werte ergeben sich aus den
+                                <a href="#c3a" style="color: var(--btc-primary);">C3A-</a> und
+                                <a href="#sov7" style="color: var(--btc-primary);">SOV-7-Bewertungen</a>.
+                            </p>
+                        </div>
+
+                        <h3><i class="fa-solid fa-list-check"></i> Die 8 SOV-Kriterien im Detail</h3>
+                        <div class="factors-grid">
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #5A67D8;">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </div>
+                                <h4>SOV-1: Strategische Souveränität <span style="color: var(--btc-primary); font-size: 0.8rem;">(15%)</span></h4>
+                                <p>Sitz und Kontrolle der Entscheidungsorgane</p>
+                                <ul>
+                                    <li><strong>100:</strong> 100% deutsche/EU Eigentümer</li>
+                                    <li><strong>70-90:</strong> EU-Eigentümer mit Staatsanteil</li>
+                                    <li><strong>30-60:</strong> EU-Tochter von US-Konzern</li>
+                                    <li><strong>15:</strong> US-Konzern ohne EU-Garantien</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #10B981;">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                </div>
+                                <h4>SOV-2: Rechtliche Souveränität <span style="color: var(--btc-primary); font-size: 0.8rem;">(10%)</span></h4>
+                                <p>EU-Recht, Schutz vor CLOUD Act/FISA</p>
+                                <ul>
+                                    <li><strong>100:</strong> Deutsches Recht, kein US-Zugriff</li>
+                                    <li><strong>85-95:</strong> EU-Recht mit CLOUD Act-Schutz</li>
+                                    <li><strong>40-70:</strong> Vertraglicher Schutz</li>
+                                    <li><strong>20:</strong> Unterliegt US-Recht</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #F59E0B;">
+                                    <i class="fa-solid fa-database"></i>
+                                </div>
+                                <h4>SOV-3: Daten- & KI-Souveränität <span style="color: var(--btc-primary); font-size: 0.8rem;">(10%)</span></h4>
+                                <p>BYOK, Datenresidenz, verifizierbare Löschung</p>
+                                <ul>
+                                    <li><strong>95-100:</strong> Volle Datenhoheit, eigene Keys</li>
+                                    <li><strong>80-90:</strong> EU-Datenresidenz, BYOK</li>
+                                    <li><strong>50-65:</strong> EU-Regionen verfügbar</li>
+                                    <li><strong>55:</strong> Standard-Verschlüsselung</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #8B5CF6;">
+                                    <i class="fa-solid fa-gears"></i>
+                                </div>
+                                <h4>SOV-4: Operative Souveränität <span style="color: var(--btc-primary); font-size: 0.8rem;">(15%)</span></h4>
+                                <p>Exit-Fähigkeit, EU-basierte Teams</p>
+                                <ul>
+                                    <li><strong>85-100:</strong> Voller Betrieb in EU/DE</li>
+                                    <li><strong>65-90:</strong> Dediziertes EU-Team</li>
+                                    <li><strong>45-55:</strong> Globaler Support</li>
+                                    <li><strong>40:</strong> Eingeschränkter EU-Support</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #EF4444;">
+                                    <i class="fa-solid fa-link"></i>
+                                </div>
+                                <h4>SOV-5: Lieferketten-Souveränität <span style="color: var(--btc-primary); font-size: 0.8rem; font-weight: bold;">(20%)</span></h4>
+                                <p>Hardware, Firmware, SBOMs - höchste Gewichtung!</p>
+                                <ul>
+                                    <li><strong>70:</strong> EU-Hardware-Fokus, Open Source</li>
+                                    <li><strong>50-60:</strong> EU-Kontrolle über US-Hardware</li>
+                                    <li><strong>35-45:</strong> Kritische Abhängigkeiten (z.B. Huawei)</li>
+                                    <li><strong>25-30:</strong> Proprietär, keine Transparenz</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #06B6D4;">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <h4>SOV-6: Technologie-Souveränität <span style="color: var(--btc-primary); font-size: 0.8rem;">(15%)</span></h4>
+                                <p>Offene APIs, Open Source, Vendor Lock-in</p>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.4rem; font-style: italic;">Technologie-Souveränität bedeutet nicht, proprietäre Software auf EU-Infrastruktur zu hosten. Echte Souveränität entsteht durch offene Technologien, die ohne Vendor-Abhängigkeit betrieben werden können.</p>
+                                <ul>
+                                    <li><strong>100:</strong> 100% Open Source (OpenStack)</li>
+                                    <li><strong>65-75:</strong> OpenStack-basiert, offene APIs</li>
+                                    <li><strong>40-55:</strong> Mix aus Standard und proprietär</li>
+                                    <li><strong>30-40:</strong> Stark proprietär</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #EC4899;">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <h4>SOV-7: Sicherheits-Souveränität <span style="color: var(--btc-primary); font-size: 0.8rem;">(10%)</span></h4>
+                                <p>EU-Security Ops, Zertifizierungen</p>
+                                <ul>
+                                    <li><strong>90-95:</strong> C5, ISO 27001, BSI, VS-NfD</li>
+                                    <li><strong>80-85:</strong> C5, ISO 27001, BSI-konform</li>
+                                    <li><strong>65-70:</strong> ISO 27001, SOC 2</li>
+                                    <li><strong>75:</strong> Open Source (Eigenverantwortung)</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #22C55E;">
+                                    <i class="fa-solid fa-leaf"></i>
+                                </div>
+                                <h4>SOV-8: Ökologische Nachhaltigkeit <span style="color: var(--btc-primary); font-size: 0.8rem;">(5%)</span></h4>
+                                <p>PUE, erneuerbare Energien, Emissionsmetriken</p>
+                                <ul>
+                                    <li><strong>85:</strong> Eigene RZs, hoher Nachhaltigkeitsfokus</li>
+                                    <li><strong>60-75:</strong> Erneuerbare Energie, Transparenz</li>
+                                    <li><strong>50-55:</strong> Standard-Nachhaltigkeitsberichte</li>
+                                    <li><strong>50:</strong> Eigene Infrastruktur (variabel)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3><i class="fa-solid fa-chart-line"></i> Provider-Scores & SOV-Details</h3>
+                        <p class="sov-matrix-hint">
+                            Klicken Sie auf einen Provider, um dessen detaillierte SOV-Bewertung aufzuklappen.
+                        </p>
+                        <div id="controlScoresAccordion" class="sov-accordion">
+                            <!-- Provider-Accordion wird dynamisch eingefügt -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BSI C3A — Operationalisierung der Souveränität -->
+                <section id="c3a" class="criteria-section">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-shield-halved"></i> BSI C3A — Operationalisierung der Souveränität
+                    </h2>
+                    <div class="criteria-card">
+                        <div class="criteria-intro">
+                            <p>
+                                Mit der Veröffentlichung der <strong>Criteria enabling Cloud Computing Autonomy (C3A)</strong>
+                                am <strong>27. April 2026</strong> liefert das BSI erstmals einen prüfbaren Kriterien-Katalog
+                                zur Operationalisierung des EU Cloud Sovereignty Framework. C3A übernimmt explizit die
+                                Struktur und Ziele des EU CSF und ergänzt sie um konkrete, auditierbare Anforderungen.
+                            </p>
+                            <p>
+                                Ab Version 4.0.0 stellt der Sovereign Cloud Compass je Provider eine zusätzliche
+                                C3A-Bewertung auf den ~30 Einzelkriterien bereit – inklusive belastbarer Quellen.
+                            </p>
+                        </div>
+
+                        <h3><i class="fa-solid fa-layer-group"></i> Verhältnis zu EU CSF, SEAL und BSI C5:2026</h3>
+                        <p>
+                            Das EU CSF mit seinen SEAL-Levels (1–4) liefert die <em>Reifegrad-Klassifizierung</em>.
+                            BSI C3A liefert die <em>prüfbaren Detail-Kriterien</em>, die diese Klassifizierung im
+                            Audit belegbar machen. Der Sicherheitsteil (SOV-7) wird über BSI C5:2026 / IT-Grundschutz
+                            abgedeckt; Nachhaltigkeit (SOV-8) ist nicht Teil von C3A. Beide Dimensionen bleiben in
+                            der SCC-Bewertung erhalten.
+                        </p>
+
+                        <h3><i class="fa-solid fa-list-ul"></i> Kriterien-Struktur</h3>
+                        <div class="factors-grid">
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #6366F1;"><i class="fa-solid fa-building-columns"></i></div>
+                                <h4>SOV-1 Strategic Sovereignty</h4>
+                                <p>4 Kriterien</p>
+                                <ul>
+                                    <li>Jurisdiction (C1: EU / C2: DE)</li>
+                                    <li>Registered Office</li>
+                                    <li>Effective Control</li>
+                                    <li>Control Change (90 Tage Notice)</li>
+                                </ul>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #8B5CF6;"><i class="fa-solid fa-scale-balanced"></i></div>
+                                <h4>SOV-2 Legal & Jurisdictional</h4>
+                                <p>3 Kriterien</p>
+                                <ul>
+                                    <li>Extraterritorial Exposure</li>
+                                    <li>Audit Rights (C1/C2)</li>
+                                    <li>State of Defense Takeover</li>
+                                </ul>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #3B82F6;"><i class="fa-solid fa-database"></i></div>
+                                <h4>SOV-3 Data Sovereignty</h4>
+                                <p>5 Kriterien</p>
+                                <ul>
+                                    <li>Data Residence (C1–C5)</li>
+                                    <li>External Key Management</li>
+                                    <li>External Identity Provider</li>
+                                    <li>Logging & Monitoring</li>
+                                    <li>Client-Side Encryption</li>
+                                </ul>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #14B8A6;"><i class="fa-solid fa-gears"></i></div>
+                                <h4>SOV-4 Operational Sovereignty</h4>
+                                <p>10 Kriterien</p>
+                                <ul>
+                                    <li>Operating Personnel (EU/DE)</li>
+                                    <li>Remote Work, SOC, Connectivity</li>
+                                    <li>Ingress Data Control</li>
+                                    <li>Disconnect / Reconnect (90 Tage)</li>
+                                    <li>Data Exchange Monitoring & Gateways</li>
+                                </ul>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #F59E0B;"><i class="fa-solid fa-link"></i></div>
+                                <h4>SOV-5 Supply Chain</h4>
+                                <p>5 Kriterien</p>
+                                <ul>
+                                    <li>Software Dependencies (SBOM TR-03183)</li>
+                                    <li>Hardware Dependencies</li>
+                                    <li>External Service Dependencies</li>
+                                    <li>Export Restriction</li>
+                                    <li>Capacity Management (C1/C2)</li>
+                                </ul>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #10B981;"><i class="fa-solid fa-code"></i></div>
+                                <h4>SOV-6 Technology Sovereignty</h4>
+                                <p>3 Kriterien</p>
+                                <ul>
+                                    <li>Source Code Availability (EU, ≤24 h, ≥5 Versionen)</li>
+                                    <li>Continuous Service Delivery</li>
+                                    <li>Software Development</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3><i class="fa-solid fa-flag"></i> C1- vs. C2-Variante</h3>
+                        <p>
+                            Viele C3A-Kriterien existieren in zwei Schärfegraden: <strong>C1</strong> verlangt EU-Bezug,
+                            <strong>C2</strong> verlangt deutschen Bezug (z. B. Personal mit Hauptwohnsitz Deutschland,
+                            SOC in Deutschland, deutsche Audit-Rechte). C2 adressiert insbesondere die deutsche
+                            Bundesverwaltung und KRITIS-Betreiber.
+                        </p>
+
+                        <h3><i class="fa-solid fa-arrow-trend-up"></i> Ausblick</h3>
+                        <p>
+                            Der geplante <strong>EU Cloud and AI Development Act (CADA)</strong> mit angekündigter
+                            Veröffentlichung Mai 2026 könnte Teile von C3A in verbindliche EU-Rechtsnormen überführen.
+                        </p>
+
+                        <p style="margin-top: 1.25rem; font-size: 0.875rem; color: var(--gray-500);">
+                            Quelle:
+                            <a href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/CloudComputing/C3A_Cloud_Computing_Autonomy.pdf" target="_blank" rel="noopener">
+                                BSI – Criteria enabling Cloud Computing Autonomy (C3A) v1.0, 27.04.2026
+                            </a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- SOV-7 Sicherheits-Compliance-Katalog -->
+                <section id="sov7" class="criteria-section">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-shield-alt"></i> SOV-7 Sicherheits-Compliance
+                    </h2>
+                    <div class="criteria-card">
+                        <div class="criteria-intro">
+                            <p>
+                                Da BSI C3A die SOV-7-Kategorie (Sicherheit & Compliance) bewusst nicht abdeckt
+                                und stattdessen auf BSI C5:2026 / IT-Grundschutz verweist, ergänzt der SCC ab
+                                <strong>Version 4.0.0</strong> einen eigenen <strong>10-Punkte-Compliance-Katalog</strong>
+                                analog zur C3A-Struktur. Pro Provider werden die 10 Kriterien mit
+                                <strong>erfüllt / teilweise / nicht erfüllt / unbekannt</strong> bewertet
+                                und fließen so audit-tauglich in den Kontrolle-Score ein.
+                            </p>
+                            <p>
+                                Damit beruht ab v4.0.0 die <strong>komplette Kontrolle-Dimension</strong> auf belegbaren
+                                Quellen: SOV-1…6 aus <em>BSI C3A v1.0</em>, SOV-7 aus diesem Compliance-Katalog,
+                                SOV-8 (Nachhaltigkeit) bleibt eine Experten-Einschätzung.
+                            </p>
+                        </div>
+
+                        <h3><i class="fa-solid fa-list-check"></i> Die 10 SOV-7-Kriterien</h3>
+                        <div class="factors-grid">
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #3b82f6, #1e40af);">
+                                    <i class="fa-solid fa-certificate"></i>
+                                </div>
+                                <h4>SOV-7-01 ISO/IEC 27001</h4>
+                                <p>Aktuelle ISMS-Zertifizierung nach ISO/IEC 27001 für die für den Cloud-Service relevanten Standorte und Prozesse.</p>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <h4>SOV-7-02 IT-Grundschutz</h4>
+                                <p>Zertifizierung nach BSI-Standard 200-2/200-3 (IT-Grundschutz) für die relevanten Rechenzentren.</p>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                    <i class="fa-solid fa-clipboard-check"></i>
+                                </div>
+                                <h4>SOV-7-03 BSI C5</h4>
+                                <p>Gültiges Testat nach BSI C5:2020 oder C5:2026 (Type 1 oder Type 2).</p>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #14b8a6, #0d9488);">
+                                    <i class="fa-solid fa-cloud"></i>
+                                </div>
+                                <h4>SOV-7-04 ISO/IEC 27017</h4>
+                                <p>Cloud-spezifische Sicherheitskontrollen zertifiziert.</p>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                </div>
+                                <h4>SOV-7-05 ISO/IEC 27018</h4>
+                                <p>Datenschutz für PII (personenbezogene Daten) in Public Cloud zertifiziert.</p>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #ec4899, #be185d);">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+                                <h4>SOV-7-06 ISO/IEC 27701</h4>
+                                <p>PIMS (Privacy Information Management System) zertifiziert.</p>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                                    <i class="fa-solid fa-file-shield"></i>
+                                </div>
+                                <h4>SOV-7-07 SOC 2 Type 2</h4>
+                                <p>Aktueller SOC 2 Type 2 Bericht zu mindestens Security/Availability/Confidentiality.</p>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #ef4444, #b91c1c);">
+                                    <i class="fa-solid fa-tower-broadcast"></i>
+                                </div>
+                                <h4>SOV-7-08 KRITIS-Fähigkeit</h4>
+                                <p>Provider als KRITIS-fähig referenziert oder explizit für KRITIS-Workloads zugelassen.</p>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #06b6d4, #0e7490);">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                                <h4>SOV-7-09 NIS2-Konformität</h4>
+                                <p>Nachweisbare Erfüllung der erweiterten NIS2-Pflichten (Risk-Management, Incident-Reporting).</p>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: linear-gradient(135deg, #22c55e, #15803d);">
+                                    <i class="fa-solid fa-binoculars"></i>
+                                </div>
+                                <h4>SOV-7-10 EU-SOC / VS-NfD</h4>
+                                <p>Security Operations Center innerhalb EU/DE etabliert; VS-NfD-Eignung optional zusätzlich.</p>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 2rem;"><i class="fa-solid fa-calculator"></i> Aggregation</h3>
+                        <p>
+                            Identisch zur BSI-C3A-Logik: <strong>erfüllt = 100</strong>,
+                            <strong>teilweise = 50</strong>, <strong>nicht erfüllt / unbekannt = 0</strong>;
+                            arithmetisches Mittel über die 10 Kriterien.
+                            Der so berechnete Wert ist der SOV-7-Score und fließt mit Gewicht 10 % (EU-CSF-Gewichtung)
+                            in den Kontrolle-Score ein.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Leistung & Performance -->
+                <section id="leistung" class="criteria-section">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-bolt"></i> Leistung & Performance
+                    </h2>
+                    <div class="criteria-card">
+                        <div class="criteria-intro">
+                            <p>
+                                Misst die technische Leistungsfähigkeit, Service-Portfolio und Innovation des Anbieters.
+                                Dieser Score basiert auf der Analyse von Service-Umfang, Reife, Skalierbarkeit und Innovation.
+                            </p>
+                        </div>
+
+                        <h3><i class="fa-solid fa-list-check"></i> Bewertungsfaktoren</h3>
+                        <div class="factors-grid">
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #F59E0B;">
+                                    <i class="fa-solid fa-box"></i>
+                                </div>
+                                <h4>Service-Portfolio Umfang</h4>
+                                <p>Anzahl und Vielfalt der Services</p>
+                                <ul>
+                                    <li><strong>Hyperscaler:</strong> 200+ Services (90-95 Punkte)</li>
+                                    <li><strong>Souveräne Clouds:</strong> 100+ Services (65-90 Punkte)</li>
+                                    <li><strong>EU-Provider:</strong> 50-100 Services (55-75 Punkte)</li>
+                                    <li><strong>Hybrid:</strong> 40-80 Services (60-70 Punkte)</li>
+                                    <li><strong>Private Cloud:</strong> Basis-Services (20-35 Punkte)</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #10B981;">
+                                    <i class="fa-solid fa-check-circle"></i>
+                                </div>
+                                <h4>Service-Reife (Maturity)</h4>
+                                <p>GA vs. Preview/Beta Services</p>
+                                <ul>
+                                    <li><strong>Hyperscaler:</strong> Sehr reifes Portfolio</li>
+                                    <li><strong>Souveräne Clouds:</strong> Reifes Portfolio, neue Services</li>
+                                    <li><strong>EU-Provider:</strong> Solides Portfolio, wachsend</li>
+                                    <li><strong>Private Cloud:</strong> Bewährt, aber eingeschränkt</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #8B5CF6;">
+                                    <i class="fa-solid fa-arrow-up-right-dots"></i>
+                                </div>
+                                <h4>Skalierbarkeit & Verfügbarkeit</h4>
+                                <p>Auto-Scaling, globale Verfügbarkeit</p>
+                                <ul>
+                                    <li><strong>Global:</strong> Mehrere Regionen weltweit (Hyperscaler)</li>
+                                    <li><strong>Multi-Regional:</strong> Mehrere EU-Regionen</li>
+                                    <li><strong>Regional:</strong> Deutschland/EU</li>
+                                    <li><strong>Lokal:</strong> Einzelner Standort/On-Prem</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #EF4444;">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+                                <h4>Innovation & KI/ML</h4>
+                                <p>Moderne Cloud-native Tools</p>
+                                <ul>
+                                    <li><strong>Führend:</strong> Eigene KI/ML-Services (Hyperscaler)</li>
+                                    <li><strong>Fortgeschritten:</strong> KI-Integration verfügbar</li>
+                                    <li><strong>Standard:</strong> Basis KI-Services</li>
+                                    <li><strong>Limited:</strong> Eingeschränkte KI-Angebote</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #06B6D4;">
+                                    <i class="fa-solid fa-puzzle-piece"></i>
+                                </div>
+                                <h4>Ökosystem & Integration</h4>
+                                <p>Partner, Marketplace, Tools</p>
+                                <ul>
+                                    <li><strong>Umfangreich:</strong> Großer Marketplace (Hyperscaler)</li>
+                                    <li><strong>Solide:</strong> Partner-Integration vorhanden</li>
+                                    <li><strong>Wachsend:</strong> Aufbauendes Ökosystem</li>
+                                    <li><strong>Begrenzt:</strong> Basis-Integration</li>
+                                </ul>
+                            </div>
+
+                            <div class="factor-card">
+                                <div class="factor-icon" style="background: #F59E0B;">
+                                    <i class="fa-solid fa-gauge-high"></i>
+                                </div>
+                                <h4>Performance & Latenz</h4>
+                                <p>Geschwindigkeit und Netzwerkqualität</p>
+                                <ul>
+                                    <li><strong>Exzellent:</strong> Globales Premium-Netzwerk</li>
+                                    <li><strong>Sehr gut:</strong> Regionales High-Performance-Netz</li>
+                                    <li><strong>Gut:</strong> Solide Performance</li>
+                                    <li><strong>Standard:</strong> Basis-Performance</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3><i class="fa-solid fa-chart-line"></i> Provider-Scores im Detail</h3>
+                        <div id="performanceScoresTable"></div>
+                    </div>
+                </section>
+
+                <!-- Provider-Details -->
+                <section id="provider" class="criteria-section">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-cloud"></i> Cloud-Provider im Detail
+                    </h2>
+                    <div class="criteria-card">
+                        <p>
+                            Detaillierte Übersicht aller bewerteten Cloud-Provider mit ihren Scores und Kategorien.
+                            Die Werte können hier angepasst werden und wirken sich direkt auf die Compass-Analyse aus.
+                        </p>
+                        <div id="providerDetailsTable"></div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <img src="btc-logo.png" alt="BTC AG - Cloud Solutions Partner" class="footer-logo" width="100" height="25" loading="lazy">
+                <p class="footer-text">
+                    Ihr Partner für souveräne Cloud-Transformation |
+                    <a href="https://www.btc-ag.com/digital-sovereignty" class="footer-link">Mehr über Go Sovereign!</a> |
+                    <a href="https://www.btc-ag.com/Impressum" class="footer-link">Impressum</a>
+                </p>
+                <a href="https://github.com/btc-ag/SCC/blob/main/CHANGELOG.md" target="_blank" rel="noopener" style="position: absolute; bottom: 0.5rem; right: 1rem; font-size: 0.7rem; color: var(--gray-400); opacity: 0.6; text-decoration: none;">Version 4.0.0</a>
+            </div>
+        </footer>
+
+        <!-- Edit Provider Modal -->
+        <div class="edit-modal-overlay" id="editModalOverlay">
+            <div class="edit-modal">
+                <div class="edit-modal-header">
+                    <h3 id="editModalTitle">Provider bearbeiten</h3>
+                    <button class="edit-modal-close" id="editModalClose">&times;</button>
+                </div>
+                <div class="edit-modal-content" id="editModalContent">
+                    <!-- Dynamisch gefüllt -->
+                </div>
+                <div class="edit-modal-footer">
+                    <button class="btn-secondary" id="editModalCancel">Abbrechen</button>
+                    <button class="btn-primary" id="editModalSave">Speichern</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Back Button -->
+        <div class="floating-back-btn">
+            <a href="index.html" title="Zurück zum Compass">
+                <i class="fa-solid fa-arrow-left"></i> Zurück zum Compass
+            </a>
+        </div>
+
+        <!-- Floating Reset Button -->
+        <div class="floating-reset-btn" id="floatingResetBtn" style="display: none;">
+            <button id="floatingResetButton" title="Alle Änderungen zurücksetzen">
+                <i class="fa-solid fa-rotate-left"></i> Zurück zum Standard
+            </button>
+        </div>
+
+        <!-- Reset Confirmation Modal -->
+        <div class="confirmation-modal-overlay" id="resetConfirmationOverlay">
+            <div class="confirmation-modal">
+                <div class="confirmation-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3>Alle Änderungen zurücksetzen?</h3>
+                <p>Alle individuellen Anpassungen an den Provider-Scores werden auf die Standard-Werte zurückgesetzt.</p>
+                <div class="confirmation-actions">
+                    <button class="btn-secondary" id="resetCancel">Abbrechen</button>
+                    <button class="btn-danger" id="resetConfirm">Zurücksetzen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page-specific Scripts -->
+    <script>
+        // Mobile Section Navigation
+        function navigateToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                updateMobileNavState(sectionId);
+            }
+        }
+
+        function updateMobileNavState(sectionId) {
+            // Update dropdown
+            const selector = document.getElementById('mobileSectionSelector');
+            if (selector) {
+                selector.value = sectionId;
+            }
+
+            // Update tabs
+            const tabs = document.querySelectorAll('.mobile-criteria-tab');
+            tabs.forEach(tab => {
+                if (tab.dataset.section === sectionId) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+
+        // Mobile Tabs Click Handler
+        document.querySelectorAll('.mobile-criteria-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = tab.dataset.section;
+                navigateToSection(sectionId);
+            });
+        });
+
+        // Scroll Spy for Mobile Navigation
+        function initMobileScrollSpy() {
+            const sections = ['uebersicht', 'kontrolle', 'c3a', 'sov7', 'leistung', 'provider'];
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateMobileNavState(entry.target.id);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    observer.observe(section);
+                }
+            });
+        }
+
+        // Initialize mobile scroll spy when DOM is ready
+        document.addEventListener('DOMContentLoaded', initMobileScrollSpy);
+    </script>
+
+    <!-- JavaScript Modules -->
+    <!-- Data layer (must load in dependency order before consumers) -->
+    <script src="js/data/sov-framework.js"></script>
+    <script src="js/data/c3a-framework.js"></script>
+    <script src="js/data/sov7-compliance.js"></script>
+    <script src="js/data/providers-base.js"></script>
+    <script src="js/data/provider-assessments.js"></script>
+    <script src="js/data/providers.js"></script>
+    <script src="js/core/storage.js"></script>
+    <script src="js/core/theme.js"></script>
+    <script src="js/core/mobile-nav.js"></script>
+    <script src="scc-criteria-page.js"></script>
+    <script>
+        // Module initialisieren
+        if (window.ThemeManager) ThemeManager.init();
+        if (window.MobileNav) MobileNav.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Sovereign Cloud Compass - Cloud-Provider nach Souveränität bewerten | BTC AG</title>
+    <meta name="description" content="Vergleichen Sie Cloud-Anbieter nach Kontrolle und Leistung — bewertet nach EU Cloud Sovereignty Framework (SEAL) und BSI C3A v1.0. Der Sovereign Cloud Compass hilft bei der Wahl zwischen AWS, Azure, STACKIT, IONOS, T Cloud, SAP CI und weiteren souveränen Cloud-Lösungen.">
+    <meta name="keywords" content="Cloud Souveränität, Cloud Anbieter Vergleich, DSGVO Cloud, Sovereign Cloud, AWS, Azure, STACKIT, Cloud Compliance, digitale Souveränität">
+    <meta name="author" content="BTC AG">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://btc-ag.github.io/SCC/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://btc-ag.github.io/SCC/">
+    <meta property="og:title" content="Sovereign Cloud Compass - Cloud-Provider Vergleich">
+    <meta property="og:description" content="Intelligente Entscheidungshilfe für souveräne Cloud-Strategien. Bewerten Sie 16 Cloud-Provider nach EU Cloud Sovereignty Framework (SEAL) und BSI C3A v1.0 — inkl. ~30 prüfbarer Kriterien und Quellenbelegen.">
+    <meta property="og:image" content="https://btc-ag.github.io/SCC/og-image.png">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="BTC AG Cloud Solutions">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://btc-ag.github.io/SCC/">
+    <meta name="twitter:title" content="Sovereign Cloud Compass - Cloud-Provider Vergleich">
+    <meta name="twitter:description" content="Cloud-Anbieter nach EU SEAL & BSI C3A vergleichen. 16 Provider, ~30 Kriterien, mit Quellenbelegen. Kostenlos und interaktiv.">
+    <meta name="twitter:image" content="https://btc-ag.github.io/SCC/og-image.png">
+
+    <!-- Favicon & Theme -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#5AA6E7">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Critical CSS (Above-the-fold styles) -->
+    <style>
+        :root{--btc-primary:#5AA6E7;--btc-heading:#1a1a2e;--text-primary:#1d1d1f;--text-secondary:#6e6e73;--bg-primary:#ffffff;--bg-secondary:#f5f5f7;--border-color:#d2d2d7;--gray-100:#f5f5f7;--gray-300:#d2d2d7;--gray-400:#86868b}
+        [data-theme="dark"]{--btc-heading:#ffffff;--text-primary:#f5f5f7;--text-secondary:#98989d;--bg-primary:#1d1d1f;--bg-secondary:#2d2d2d;--border-color:#424245;--gray-100:#2d2d2d;--gray-300:#424245;--gray-400:#636366}
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth}
+        body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.5}
+        .skip-link{position:absolute;top:-50px;left:0;background:var(--btc-primary);color:#fff;padding:0.75rem 1.5rem;text-decoration:none;z-index:100000;font-weight:600;border-radius:0 0 8px 0;transition:top 0.3s}
+        .skip-link:focus{top:0;outline:3px solid var(--btc-primary);outline-offset:2px}
+        .password-overlay{position:fixed;inset:0;background:var(--bg-primary);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:1000}
+        .password-overlay.hidden{display:none}
+        .protected-content{display:none}
+        .protected-content.unlocked{display:block}
+        .header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:#fff;padding:2rem 0 3rem}
+        .container{max-width:1400px;margin:0 auto;padding:0 1.5rem}
+        .header-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin-bottom:0.5rem}
+    </style>
+
+    <!-- Font Awesome (async loading for performance) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://btc-ag.github.io/SCC/#webapp",
+          "name": "Sovereign Cloud Compass",
+          "url": "https://btc-ag.github.io/SCC/",
+          "description": "Intelligente Entscheidungshilfe für souveräne Cloud-Strategien. Vergleichen Sie 16 Cloud-Provider nach EU Cloud Sovereignty Framework (SEAL-Levels) und BSI C3A v1.0 — inklusive ~30 prüfbarer Kriterien und Quellenbelegen.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          "provider": {
+            "@id": "https://www.btc-ag.com/#organization"
+          },
+          "featureList": [
+            "Cloud-Provider Vergleich",
+            "EU Cloud Sovereignty Framework (SEAL)",
+            "BSI C3A v1.0 Operationalisierung",
+            "DSGVO- & NIS2-Bewertung",
+            "Quellenbelege je Provider",
+            "Interaktive Entscheidungsmatrix"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.btc-ag.com/#organization",
+          "name": "BTC AG",
+          "url": "https://www.btc-ag.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://btc-ag.github.io/SCC/og-image.png"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "BTC AG",
+              "item": "https://www.btc-ag.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Digital Sovereignty",
+              "item": "https://www.btc-ag.com/digital-sovereignty"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Sovereign Cloud Compass",
+              "item": "https://btc-ag.github.io/SCC/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Umami Analytics (privacy-first, DSGVO-konform, self-hosted) -->
+    <script defer src="https://analytics.soring.de/script.js" data-website-id="7f563bf0-9a42-4b8b-bd1c-a4c6f09e7bda"></script>
+</head>
+<body>
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- Password Overlay (disabled) -->
+    <div class="password-overlay hidden" id="passwordOverlay">
+        <div class="password-container">
+            <div class="login-theme-toggle" id="loginThemeToggle" role="button" tabindex="0" aria-label="Toggle dark mode"></div>
+            <img src="btc-logo.png" alt="BTC AG - Sovereign Cloud Compass" class="login-logo" width="180" height="45">
+            <h2>Sovereign Cloud Compass</h2>
+            <p class="subtitle">Wählen Sie Ihren Zugriffsmodus</p>
+
+            <!-- Public Access First -->
+            <div class="public-access-primary">
+                <h3 class="access-title">Public Mode</h3>
+                <p class="access-description">Nutzen Sie das Tool mit anonymisierten Anbietern</p>
+                <button class="public-button" id="publicButton">
+                    Ohne Passwort starten
+                </button>
+            </div>
+
+            <div class="access-divider">
+                <span>oder</span>
+            </div>
+
+            <!-- Password Access Below -->
+            <div class="password-access-section">
+                <h3 class="access-title">Vollzugriff</h3>
+                <p class="access-description">Mit detaillierten Cloud-Anbieter-Namen</p>
+
+                <form id="passwordForm" onsubmit="return false;">
+                    <input
+                        type="password"
+                        class="password-input"
+                        id="passwordInput"
+                        placeholder="Passwort eingeben..."
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="password-button" id="passwordButton">
+                        Zugriff erhalten
+                    </button>
+                    <div class="password-error" id="passwordError">
+                        Falsches Passwort. Bitte versuchen Sie es erneut.
+                    </div>
+                </form>
+
+                <div class="password-cta-section">
+                    <p class="password-cta">Noch kein Passwort?</p>
+                    <a href="https://outlook.office.com/book/BTCAGManagedCloudServices@btcag.onmicrosoft.com/s/U1HPjhE9b0qdW-uTHThOSw2?ismsaljsauthenabled" target="_blank" class="password-cta-button">
+                        Beratungstermin vereinbaren
+                    </a>
+                </div>
+            </div>
+        </div>
+        <footer class="footer login-page-footer">
+            <div class="container">
+                <img src="btc-logo.png" alt="BTC AG - Cloud Solutions Partner" class="footer-logo" width="100" height="25" loading="lazy">
+                <p class="footer-text">
+                    Ihr Partner für souveräne Cloud-Transformation |
+                    <a href="https://www.btc-ag.com/digital-sovereignty" class="footer-link">Mehr über Go Sovereign!</a> |
+                    <a href="https://www.btc-ag.com/Impressum" class="footer-link">Impressum</a>
+                </p>
+                <a href="https://github.com/btc-ag/SCC/blob/main/CHANGELOG.md" target="_blank" rel="noopener" style="position: absolute; bottom: 0.5rem; right: 1rem; font-size: 0.7rem; color: var(--gray-400); opacity: 0.6; text-decoration: none;">Version 4.0.0</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav-drawer" id="mobileNavDrawer">
+        <div class="drawer-header">
+            <img src="btc-logo.png" alt="BTC AG" class="drawer-logo" width="140" height="35">
+            <div class="drawer-header-actions">
+                <div class="theme-toggle" id="drawerThemeToggle" role="button" tabindex="0" aria-label="Toggle dark mode"></div>
+                <button class="drawer-close" id="drawerClose" aria-label="Menü schließen">
+                    &times;
+                </button>
+            </div>
+        </div>
+        <div class="drawer-content">
+            <span class="drawer-section-label">Navigation</span>
+            <a href="evaluation-criteria.html" class="drawer-nav-link">
+                <i class="fas fa-clipboard-list"></i>
+                Bewertungskriterien
+            </a>
+            <a href="https://btc-ag.github.io/SAA/" class="drawer-nav-link">
+                <i class="fas fa-compass"></i>
+                Architecture Advisor
+            </a>
+            <a href="https://www.btc-ag.com/download?g=whitepaper-cloud-compass" target="_blank" class="drawer-nav-link">
+                <i class="fas fa-file-alt"></i>
+                Whitepaper
+            </a>
+            <div class="drawer-divider"></div>
+            <span class="drawer-section-label">Kontakt</span>
+            <a href="https://outlook.office.com/book/BTCAGManagedCloudServices@btcag.onmicrosoft.com/s/U1HPjhE9b0qdW-uTHThOSw2?ismsaljsauthenabled" target="_blank" class="drawer-nav-link primary">
+                <i class="fas fa-calendar-check"></i>
+                Beratungstermin
+            </a>
+            <a href="https://www.btc-ag.com/digital-sovereignty" target="_blank" class="drawer-nav-link">
+                <i class="fas fa-shield-alt"></i>
+                Go Sovereign!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Protected Content -->
+    <div class="protected-content unlocked" id="protectedContent">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <nav class="header-nav">
+                    <a href="#" class="logo">
+                        <img src="btc-logo.png" alt="BTC AG - Zur Startseite" class="logo-img" width="120" height="30">
+                    </a>
+                    <div class="header-actions">
+                        <!-- Desktop Navigation -->
+                        <div class="desktop-nav">
+                            <div class="theme-toggle" id="desktopThemeToggle" role="button" tabindex="0" aria-label="Toggle dark mode"></div>
+                            <a href="https://btc-ag.github.io/SAA/" class="btn btn-secondary">
+                                Architecture Advisor
+                            </a>
+                            <a href="https://www.btc-ag.com/download?g=whitepaper-cloud-compass" target="_blank" class="btn btn-secondary">
+                                Whitepaper
+                            </a>
+                            <a href="https://outlook.office.com/book/BTCAGManagedCloudServices@btcag.onmicrosoft.com/s/U1HPjhE9b0qdW-uTHThOSw2?ismsaljsauthenabled" target="_blank" class="btn btn-primary">
+                                Beratung
+                            </a>
+                        </div>
+                        <!-- Mobile Burger Menu Toggle -->
+                        <button class="burger-menu-toggle" id="burgerMenuToggle" aria-label="Menü öffnen">
+                            <span class="burger-icon">
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
+                            </span>
+                        </button>
+                    </div>
+                </nav>
+                <h1 class="header-title">Sovereign Cloud Compass</h1>
+                <p class="header-subtitle">Ihre intelligente Entscheidungshilfe für souveräne Cloud-Strategien — bewertet nach EU Cloud Sovereignty Framework und BSI C3A</p>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="main" id="main-content" role="main" aria-label="Hauptinhalt">
+            <div class="container">
+                <!-- Info Banner -->
+                <div class="info-banner">
+                    <div class="info-banner-title">Bewertungsgrundlage</div>
+                    <div class="info-banner-text">
+                        Die Bewertungen basieren auf umfassenden Experten-Einschätzungen der BTC für jeden Cloud-Provider und sind
+                        am <strong>EU Cloud Sovereignty Framework</strong> (SOV-1…8 mit SEAL-Levels)
+                        sowie am <strong>BSI C3A v1.0</strong> (Criteria enabling Cloud Computing Autonomy, 27.04.2026)
+                        ausgerichtet. Pro Provider werden ~30 prüfbare C3A-Kriterien mit belastbaren Quellen hinterlegt.
+                        Alle beteiligten Experten verfügen jeweils über mehr als 10 Jahre Beratungs-, Betriebs- und Service-Erfahrung
+                        mit verschiedenen Cloud-Providern.
+                        <a href="evaluation-criteria.html" style="color: var(--btc-primary); text-decoration: underline; margin-left: 0.5rem;">
+                            Mehr über die Bewertungskriterien →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Framework-Glossar (ausklappbar) -->
+                <details class="framework-glossary">
+                    <summary class="framework-glossary-summary">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span class="framework-glossary-title">Was bedeuten EU CSF, SEAL und BSI C3A?</span>
+                        <span class="framework-glossary-hint">Klicken zum Aufklappen</span>
+                        <i class="fa-solid fa-chevron-down framework-glossary-chevron"></i>
+                    </summary>
+                    <div class="framework-glossary-grid">
+                        <div class="framework-card">
+                            <div class="framework-card-icon" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
+                                <i class="fa-solid fa-flag"></i>
+                            </div>
+                            <h4 class="framework-card-title">EU Cloud Sovereignty Framework (CSF)</h4>
+                            <p class="framework-card-text">
+                                Referenz-Dokument der EU-Kommission. Definiert <strong>8 SOV-Kategorien</strong>
+                                (Strategic, Legal, Data, Operational, Supply Chain, Technology, Security, Sustainability)
+                                mit gewichteten Anteilen. Das CSF ist kein formeller Standard, sondern eine
+                                Klassifizierungs-Grundlage.
+                            </p>
+                            <a href="https://commission.europa.eu/document/09579818-64a6-4dd5-9577-446ab6219113_en"
+                               target="_blank" rel="noopener" class="framework-card-link">
+                                EU-Kommission: Referenz-Dokument <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                        <div class="framework-card">
+                            <div class="framework-card-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h4 class="framework-card-title">SEAL — Sovereignty Effective Assurance Levels</h4>
+                            <p class="framework-card-text">
+                                Vierstufige Reifegrad-Klassifizierung des EU CSF. Zeigt auf einen Blick die
+                                Souveränitäts-Stufe je Provider.
+                            </p>
+                            <ul class="framework-card-list">
+                                <li><span class="seal-mini seal-mini-4">SEAL-4</span> Vollständige Souveränität (≥ 90)</li>
+                                <li><span class="seal-mini seal-mini-3">SEAL-3</span> Digital Resilience (≥ 75)</li>
+                                <li><span class="seal-mini seal-mini-2">SEAL-2</span> Data Sovereignty (≥ 55)</li>
+                                <li><span class="seal-mini seal-mini-1">SEAL-1</span> Basistransparenz (≥ 40)</li>
+                            </ul>
+                        </div>
+                        <div class="framework-card">
+                            <div class="framework-card-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                                <i class="fa-solid fa-list-check"></i>
+                            </div>
+                            <h4 class="framework-card-title">BSI C3A v1.0 (27.04.2026)</h4>
+                            <p class="framework-card-text">
+                                <em>Criteria enabling Cloud Computing Autonomy</em> — operationalisiert das EU CSF
+                                mit <strong>~30 prüfbaren Kriterien</strong> in den Kategorien SOV-1 bis SOV-6.
+                                <strong>C1</strong> verlangt EU-Bezug, <strong>C2</strong> deutschen Bezug.
+                                Sicherheit (SOV-7) wird über BSI C5:2026 abgedeckt; Nachhaltigkeit (SOV-8)
+                                ist nicht Teil von C3A.
+                            </p>
+                            <a href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/CloudComputing/C3A_Cloud_Computing_Autonomy.pdf"
+                               target="_blank" rel="noopener" class="framework-card-link">
+                                BSI: C3A v1.0 PDF <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Control Panel with Integrated Matrix -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Ihre Cloud-Strategie</h2>
+                        <div class="audit-mode-toggle" id="auditModeToggle" role="radiogroup" aria-label="BSI C3A Audit-Strenge">
+                            <span class="audit-mode-toggle-label">Audit-Strenge:</span>
+                            <button type="button" class="audit-mode-btn is-active" data-mode="c1" role="radio" aria-checked="true"
+                                    title="C1 — EU-Bezug genügt: Kriterien gelten als erfüllt, wenn EU- oder DE-Variante umgesetzt ist">
+                                <i class="fa-solid fa-globe-europe"></i>
+                                <span>EU (C1)</span>
+                            </button>
+                            <button type="button" class="audit-mode-btn" data-mode="c2" role="radio" aria-checked="false"
+                                    title="C2 — Deutscher Bezug erforderlich: Kriterien mit C1/C2-Varianten gelten nur als voll erfüllt, wenn die DE-Variante explizit umgesetzt ist (BSI-Strenge für Bundesverwaltung/KRITIS)">
+                                <i class="fa-solid fa-flag"></i>
+                                <span>Deutschland (C2)</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Digitale Souveränität ist kein Zufall – sie entsteht durch bewusste Entscheidungen. Verschieben Sie den Regler,
+                        um die Balance zwischen Kontrolle und Leistungsfähigkeit zu bestimmen — je nach Ihrer Ausrichtung identifizieren
+                        wir den optimalen Cloud-Ansatz. Jede Provider-Karte verlinkt auf das SEAL-Level (EU CSF) und einen aggregierten
+                        BSI-C3A-Score; per Klick erscheinen die Detailbewertungen aller 30 C3A-Kriterien sowie die Quellenbelege.
+                        Mit dem <strong>Audit-Strenge-Toggle</strong> rechts oben wechseln Sie zwischen EU-Bezug (C1) und
+                        deutschem Bezug (C2) — letzteres senkt automatisch alle Provider, die nur EU-Variante erfüllen.
+                        <em>(Hinweis: Das SaaS-Portfolio der Cloud-Anbieter wurde in der Positionierung nicht berücksichtigt.)</em>
+                    </p>
+                </div>
+
+                <!-- Matrix Container with Slider -->
+                <div class="matrix-container">
+                    <!-- Slider Section (Left) -->
+                    <div class="slider-section">
+                        <div class="slider-header">
+                            <h3 class="slider-title">Strategie</h3>
+                            <p class="slider-subtitle">Passen Sie die Balance zwischen Kontrolle (SEAL / C3A) und Leistung an</p>
+                        </div>
+
+                        <div class="slider-labels">
+                            <div class="slider-label slider-label-control">
+                                <span>Kontrolle</span>
+                            </div>
+                            <div class="slider-label slider-label-performance">
+                                <span>Leistung</span>
+                            </div>
+                        </div>
+
+                        <div class="slider-wrapper">
+                            <div class="slider-track">
+                                <input type="range" class="slider-input" id="strategySlider" min="0" max="100" value="50">
+                                <div class="slider-thumb" id="sliderThumb"></div>
+                            </div>
+                        </div>
+
+                        <div class="current-value-display">
+                            <span id="valueDisplay">Ausgewogen (50:50)</span>
+                        </div>
+
+                        <!-- Category Filter -->
+                        <div class="category-filter">
+                            <div class="filter-title">Kategorien</div>
+                            <div class="filter-options" id="categoryFilters">
+                                <div class="filter-option" data-category="hyperscaler">
+                                    <div class="filter-checkbox active">
+                                        <svg class="filter-check" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                            <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-color" style="background: #ef4444;"></div>
+                                    <div class="filter-label">
+                                        <span class="filter-name">Hyperscaler</span>
+                                        <span class="filter-count" id="count-hyperscaler">(4)</span>
+                                    </div>
+                                </div>
+                                <div class="filter-option" data-category="sovereign">
+                                    <div class="filter-checkbox active">
+                                        <svg class="filter-check" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                            <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-color" style="background: #3b82f6;"></div>
+                                    <div class="filter-label">
+                                        <span class="filter-name">Souveräne Clouds</span>
+                                        <span class="filter-count" id="count-sovereign">(3)</span>
+                                    </div>
+                                </div>
+                                <div class="filter-option" data-category="eu">
+                                    <div class="filter-checkbox active">
+                                        <svg class="filter-check" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                            <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-color" style="background: #10b981;"></div>
+                                    <div class="filter-label">
+                                        <span class="filter-name">EU Anbieter</span>
+                                        <span class="filter-count" id="count-eu">(4)</span>
+                                    </div>
+                                </div>
+                                <div class="filter-option" data-category="private">
+                                    <div class="filter-checkbox active">
+                                        <svg class="filter-check" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                            <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-color" style="background: #8b5cf6;"></div>
+                                    <div class="filter-label">
+                                        <span class="filter-name">Private Cloud</span>
+                                        <span class="filter-count" id="count-private">(2)</span>
+                                    </div>
+                                </div>
+                                <div class="filter-option" data-category="hybrid">
+                                    <div class="filter-checkbox active">
+                                        <svg class="filter-check" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                            <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="filter-color" style="background: #f59e0b;"></div>
+                                    <div class="filter-label">
+                                        <span class="filter-name">Hybrid-Lösungen</span>
+                                        <span class="filter-count" id="count-hybrid">(3)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chart (Right) -->
+                    <div class="chart-content">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                Cloud-Anbieter Matrix
+                            </div>
+                            <div class="chart-canvas" id="chartCanvas">
+                                <div class="chart-axis chart-axis-x"></div>
+                                <div class="chart-axis chart-axis-y"></div>
+                                <div class="chart-label chart-label-x">Leistungsfähigkeit →</div>
+                                <div class="chart-label chart-label-y">↑ Kontrolle</div>
+
+                                <div class="quadrant-label quadrant-1">Souverän</div>
+                                <div class="quadrant-label quadrant-2">Autarkiefokussiert</div>
+                                <div class="quadrant-label quadrant-3">Starter</div>
+                                <div class="quadrant-label quadrant-4">Leistungsfokussiert</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Scores Hint -->
+                <div class="custom-scores-hint" id="customScoresHint" style="display: none;">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Die Bewertung basiert auf individuell angepassten Kriterien und weicht von den Standardwerten ab.</span>
+                    <a href="evaluation-criteria.html" class="custom-scores-hint-link">
+                        <i class="fa-solid fa-arrow-right"></i> Kriterien bearbeiten
+                    </a>
+                </div>
+
+                <!-- Results -->
+                <div class="results-grid" id="resultsGrid"></div>
+
+                <!-- Legend -->
+                <div class="legend-card">
+                    <div class="legend-title">Cloud-Anbieter Kategorien</div>
+                    <div class="legend-grid" id="legendGrid"></div>
+                </div>
+
+                <!-- SEAL Legend -->
+                <div class="seal-legend-card">
+                    <div class="seal-legend-title">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        EU SEAL-Level (Sovereignty Effective Assurance Levels)
+                    </div>
+                    <div class="seal-legend-grid">
+                        <div class="seal-legend-item">
+                            <span class="seal-badge seal-badge-4"><i class="fa-solid fa-shield-halved"></i> SEAL-4</span>
+                            <span class="seal-legend-label">Vollständige Souveränität</span>
+                        </div>
+                        <div class="seal-legend-item">
+                            <span class="seal-badge seal-badge-3"><i class="fa-solid fa-shield-halved"></i> SEAL-3</span>
+                            <span class="seal-legend-label">Digital Resilience</span>
+                        </div>
+                        <div class="seal-legend-item">
+                            <span class="seal-badge seal-badge-2"><i class="fa-solid fa-shield-halved"></i> SEAL-2</span>
+                            <span class="seal-legend-label">Data Sovereignty</span>
+                        </div>
+                        <div class="seal-legend-item">
+                            <span class="seal-badge seal-badge-1"><i class="fa-solid fa-shield-halved"></i> SEAL-1</span>
+                            <span class="seal-legend-label">Basistransparenz</span>
+                        </div>
+                    </div>
+                    <p class="seal-legend-hint">Orientiert am EU Cloud Sovereignty Framework (Referenz-Dokument der EU-Kommission)</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- SOV Detail Slide-out Panel -->
+        <div class="sov-panel-overlay" id="sovPanelOverlay"></div>
+        <aside class="sov-panel" id="sovPanel">
+            <div class="sov-panel-header">
+                <div class="sov-panel-title">
+                    <span class="sov-panel-provider-name" id="sovPanelProviderName">Provider</span>
+                    <span class="sov-panel-seal-badge" id="sovPanelSealBadge"></span>
+                </div>
+                <button class="sov-panel-close" id="sovPanelClose" aria-label="Schließen">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="sov-panel-content" id="sovPanelContent">
+                <!-- SOV-Kriterien werden hier dynamisch eingefügt -->
+            </div>
+            <div class="sov-panel-footer">
+                <a href="https://commission.europa.eu/document/09579818-64a6-4dd5-9577-446ab6219113_en" target="_blank" rel="noopener" class="sov-panel-hint">
+                    <i class="fa-solid fa-circle-info"></i>
+                    SOV-Kriterien basierend auf EU Cloud Sovereignty Framework
+                    <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.65rem; margin-left: 0.25rem;"></i>
+                </a>
+                <a href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/CloudComputing/C3A_Cloud_Computing_Autonomy.pdf" target="_blank" rel="noopener" class="sov-panel-hint">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Operationalisierung gemäß BSI C3A v1.0 (27.04.2026)
+                    <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.65rem; margin-left: 0.25rem;"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <img src="btc-logo.png" alt="BTC AG - Cloud Solutions Partner" class="footer-logo" width="100" height="25" loading="lazy">
+                <p class="footer-text">
+                    Ihr Partner für souveräne Cloud-Transformation |
+                    <a href="https://www.btc-ag.com/digital-sovereignty" class="footer-link">Mehr über Go Sovereign!</a> |
+                    <a href="https://www.btc-ag.com/Impressum" class="footer-link">Impressum</a>
+                </p>
+                <a href="https://github.com/btc-ag/SCC/blob/main/CHANGELOG.md" target="_blank" rel="noopener" style="position: absolute; bottom: 0.5rem; right: 1rem; font-size: 0.7rem; color: var(--gray-400); opacity: 0.6; text-decoration: none;">Version 4.0.0</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <!-- Data layer (must load in dependency order before consumers) -->
+    <script src="js/data/sov-framework.js"></script>
+    <script src="js/data/c3a-framework.js"></script>
+    <script src="js/data/sov7-compliance.js"></script>
+    <script src="js/data/providers-base.js"></script>
+    <script src="js/data/provider-assessments.js"></script>
+    <script src="js/data/providers.js"></script>
+    <script src="js/core/storage.js"></script>
+    <script src="js/core/theme.js"></script>
+    <script src="js/core/auth.js"></script>
+    <script src="js/core/mobile-nav.js"></script>
+    <script src="js/core/utils.js"></script>
+    <script src="js/components/chart.js"></script>
+    <script src="js/scc-compass.js"></script>
+</body>
+</html>

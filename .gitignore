@@ -1,0 +1,13 @@
+# Archive folder
+Archive/
+
+# macOS
+.DS_Store
+
+# Backup files
+*.backup-*
+*.bak
+
+# SEO Reports (local only)
+SEO-*.md
+Gesprächsleitfaden_ThomasPeters_SAP.md

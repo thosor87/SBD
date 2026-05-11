@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://btc-ag.github.io/SCC/</loc>
+        <lastmod>2026-01-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="de" href="https://btc-ag.github.io/SCC/"/>
+    </url>
+    <url>
+        <loc>https://btc-ag.github.io/SCC/index.html</loc>
+        <lastmod>2026-01-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="de" href="https://btc-ag.github.io/SCC/index.html"/>
+    </url>
+    <url>
+        <loc>https://btc-ag.github.io/SCC/evaluation-criteria.html</loc>
+        <lastmod>2026-01-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="de" href="https://btc-ag.github.io/SCC/evaluation-criteria.html"/>
+    </url>
+</urlset>
