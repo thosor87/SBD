@@ -185,6 +185,7 @@
         const seal = SCC_DATA.getSealLevel ? SCC_DATA.getSealLevel(provider.control) : null;
         const c3aScores = SCC_DATA.getProviderC3AScores ? SCC_DATA.getProviderC3AScores(provider.id) : null;
         const c3aCls = c3aScores && c3aScores.total >= 75 ? 'high' : (c3aScores && c3aScores.total >= 50 ? 'medium' : 'low');
+        const es3Data = SCC_DATA.getProviderES3 ? SCC_DATA.getProviderES3(provider.id) : null;
 
         popup.innerHTML = `
             <div class="chp-card">
@@ -197,6 +198,7 @@
                     <div class="chp-badges">
                         ${seal ? `<span class="chp-badge seal-badge seal-badge-${seal.level}"><i class="fa-solid fa-shield-halved"></i> ${seal.shortLabel}</span>` : ''}
                         ${c3aScores ? `<span class="chp-badge c3a-badge c3a-badge-${c3aCls}"><i class="fa-solid fa-circle-check"></i> C3A ${c3aScores.total}</span>` : ''}
+                        ${es3Data?.certified ? `<span class="chp-badge es3-badge es3-badge-certified" title="${es3Data.note}"><i class="fa-solid fa-star"></i> ES³ certified</span>` : ''}
                     </div>
                     <div class="chp-metrics">
                         <div class="chp-metric">
@@ -296,11 +298,16 @@
                     <i class="fa-solid fa-circle-check"></i> C3A ${c3aScores.total}
                 </span>
             ` : '';
+            const es3Data = SCC_DATA.getProviderES3 ? SCC_DATA.getProviderES3(provider.id) : null;
+            const es3Badge = es3Data?.certified ? `
+                <span class="es3-badge es3-badge-certified" title="${es3Data.note}">
+                    <i class="fa-solid fa-star"></i> ES³ certified
+                </span>` : '';
 
             card.innerHTML = `
                 <div class="result-header">
                     <div class="result-rank">#${rankings[index]}</div>
-                    <div class="result-badges">${sealBadge}${c3aBadge}</div>
+                    <div class="result-badges">${sealBadge}${c3aBadge}${es3Badge}</div>
                 </div>
                 <div class="result-name">${provider.name}</div>
                 <div class="result-description">${provider.description}</div>
@@ -318,7 +325,10 @@
             `;
 
             // Klick öffnet Sov-Panel (Hover-Popup nur in der Matrix, nicht hier auf den Cards)
-            card.addEventListener('click', () => openSovPanel(provider));
+            card.addEventListener('click', () => {
+                window._selectedProvider = provider.id;
+                openSovPanel(provider);
+            });
 
             fragment.appendChild(card);
         });
@@ -602,6 +612,7 @@
         const c3aClsHeader = c3aScoresHeader && c3aScoresHeader.total >= 75 ? 'high'
             : (c3aScoresHeader && c3aScoresHeader.total >= 50 ? 'medium' : 'low');
         const gesamtScore = (typeof provider.score === 'number') ? provider.score.toFixed(1) : null;
+        const es3DataHeader = SCC_DATA.getProviderES3 ? SCC_DATA.getProviderES3(provider.id) : null;
         sealBadge.innerHTML = `
             ${seal ? `<span class="seal-badge seal-badge-${seal.level}">
                 <i class="fa-solid fa-shield-halved"></i> ${seal.shortLabel}
@@ -612,6 +623,7 @@
             ${gesamtScore !== null ? `<span class="overall-badge" title="Gesamt-Score gemäß aktuellem Slider (Kontrolle vs. Leistung gewichtet)">
                 <i class="fa-solid fa-chart-line"></i> Gesamt ${gesamtScore}
             </span>` : ''}
+            ${es3DataHeader?.certified ? `<span class="es3-badge es3-badge-certified" title="${es3DataHeader.note}"><i class="fa-solid fa-star"></i> ES³ certified (BDO)</span>` : ''}
         `;
 
         // SOV-Scores und Erklärungen laden

@@ -36,6 +36,17 @@
     ]);
 
     /**
+     * ES³ Level Definitionen (European Sovereign Stack Standard)
+     * @readonly
+     */
+    const ES3_LEVELS = Object.freeze({
+        FUTURE_PROOF: { level: 4, id: 'future-proof', label: 'Future-Proof', shortLabel: 'ES³ Future-Proof', color: '#10b981' },
+        ADVANCED:     { level: 3, id: 'advanced',     label: 'Advanced',     shortLabel: 'ES³ Advanced',     color: '#3b82f6' },
+        MANAGED:      { level: 2, id: 'managed',       label: 'Managed',      shortLabel: 'ES³ Managed',      color: '#f59e0b' },
+        INITIAL:      { level: 1, id: 'initial',        label: 'Initial',       shortLabel: 'ES³ Initial',      color: '#f97316' },
+    });
+
+    /**
      * Ermittelt das SEAL-Level basierend auf dem Kontrolle-Score
      * @param {number} controlScore
      * @returns {Object}
@@ -128,6 +139,7 @@
     window.SCC_SOV_FRAMEWORK = Object.freeze({
         SEAL_LEVELS,
         SEAL_ZONES,
+        ES3_LEVELS,
         SOV_CRITERIA,
         SOV_WEIGHTS,
         getSealLevel,

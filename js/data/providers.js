@@ -168,7 +168,11 @@
         SOV8_EXPERT_SCORES:    ASSESS.SOV8_EXPERT_SCORES,
         getProviderSov7:       ASSESS.getProviderSov7,
         getProviderSov7Scores,
-        computeProviderSovScores: ASSESS.computeProviderSovScores
+        computeProviderSovScores: ASSESS.computeProviderSovScores,
+
+        // ES³-Zertifizierung (STACKIT)
+        ES3_LEVELS: FRAMEWORK.ES3_LEVELS,
+        getProviderES3: ASSESS.getProviderES3
     });
 
 })();

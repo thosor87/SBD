@@ -487,6 +487,12 @@
          * ====================================================================== */
 
         'stackit': {
+            es3: {
+                certified: true,
+                auditBody: 'BDO',
+                currentLevel: 4,
+                note: 'STACKIT ist der erste Provider mit ES³-Zertifizierung nach dem European Sovereign Stack Standard – auditiert von BDO.',
+            },
             sov7: {
                 'SOV-7-01': r('pass', 'ISO 27001 (Schwarz Digits 2024)'),
                 'SOV-7-02': r('partial', 'IT-Grundschutz für Teile, nicht voll'),
@@ -1028,6 +1034,7 @@
     function getProviderC3A(id)        { return ASSESSMENTS[id]?.c3a || null; }
     function getProviderSov7(id)       { return ASSESSMENTS[id]?.sov7 || null; }
     function getProviderSources(id)    { return ASSESSMENTS[id]?.sources || []; }
+    function getProviderES3(providerId) { return ASSESSMENTS[providerId]?.es3 ?? null; }
 
     window.SCC_ASSESSMENTS = Object.freeze({
         ASSESSMENTS: Object.freeze(ASSESSMENTS),
@@ -1040,7 +1047,8 @@
         getProviderSovExplanations,
         getProviderC3A,
         getProviderSov7,
-        getProviderSources
+        getProviderSources,
+        getProviderES3
     });
 
 })();
