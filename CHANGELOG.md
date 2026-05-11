@@ -24,6 +24,9 @@ Initial release – Sovereignty by Design Platform.
 - **ES³-Badge**: STACKIT erhält „ES³ certified"-Badge in Result-Card, Hover-Popup und SOV-Panel.
 - **`getProviderES3DerivedLevel(id)`**, **`getViewMode()` / `setViewMode()`** in `window.SCC_DATA`
 - **SOV-Panel ES³-Modus**: Im ES³-Modus zeigt das Detail-Panel jeden Provider mit ES³-Perspektive: ES³ SML-Level prominent im Header, Hero-Metrik zeigt ES³ SML + Weakest-Link-Score, aufgeklappter Formel-Block mit Dimension-Score-Tabelle (D1–D8 mit Scores, Level, Weakest-Link-Markierung), jede SOV-Zeile erhält ES³-Dimensions-Tag (z. B. „ES³ D5") und orange Weakest-Link-Badge bei der schwächsten Dimension. Im SEAL-Modus bleibt die bisherige Ansicht (SEAL + C3A + Gewichtungsformel) unverändert.
+- **Mobile-Optimierung**: Vollständig responsiv für alle Steps und Seiten. Step-Navigation kompakt ab 768px, Labels ab 400px ausgeblendet. Step-2-Fragebogen wechselt auf einspaltiges Layout, Touch-Targets mind. 36–44px. Step-3-Ergebnis mit scrollbarer Tabelle, gestapeltem Footer und Touch-freundlichem CTA. Schwebende Auswahl-Bar mit iOS safe-area-inset. evaluation-criteria.html kompakter ab 480px.
+- **ES³-certified Badge**: Grüner Checkmark (`✓ ES³ certified`) ohne Rahmen — dezent neben SEAL/C3A-Badges.
+- **Umlaute**: Alle Umlaut-Ersetzungen (ae/oe/ue) in `provider-match.js` und `es3-questions.js` korrigiert.
 
 **Step 2 – Organisations-Assessment**
 - **ES³-Assessment**: 9 Souveränitätsdimensionen × 3 Ebenen (Regulatorisch / Organisatorisch / Technisch), 27 Fragen

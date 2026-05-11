@@ -4,15 +4,17 @@
 
 Basierend auf dem [Sovereign Cloud Compass (SCC)](https://github.com/btc-ag/SCC) erweitert diese Plattform den Provider-Vergleich um ein ES³-kompatibles Organisations-Assessment und gibt eine provider-spezifische Empfehlung.
 
+**Demo:** https://sbd.object.storage.eu01.onstackit.cloud/index.html
+
 ---
 
 ## Was ist SBD?
 
 Drei Schritte, eine klare Empfehlung:
 
-1. **Provider wählen** – Vollständiger SCC-Provider-Vergleich (16 Anbieter) mit ES³/SEAL-Umschalter: Im ES³-Modus (Default) sieht man das abgeleitete ES³-SML-Level je Provider; im SEAL-Modus EU CSF SEAL-Level und BSI-C3A-Score. Nur STACKIT ist offiziell ES³-zertifiziert (BDO-auditiert).
-2. **Organisation bewerten** – ES³-kompatibles Self-Assessment in 9 Souveränitätsdimensionen
-3. **Ergebnis & Empfehlung** – Reifegrad-Auswertung mit provider-spezifischer Einschätzung
+1. **Provider wählen** – Vollständiger SCC-Provider-Vergleich (16 Anbieter) mit ES³/SEAL-Umschalter. Im ES³-Modus (Default) zeigt jede Provider-Card das abgeleitete ES³-SML-Level (Weakest-Link aus SOV-1…8); im SEAL-Modus EU CSF SEAL-Level und BSI-C3A-Score. STACKIT ist als einziger offiziell ES³-zertifizierter Provider (BDO-auditiert) markiert. Klick auf eine Card öffnet die Detailansicht mit vollständiger ES³-Dimension-Aufschlüsselung.
+2. **Organisation bewerten** – ES³-kompatibles Self-Assessment in 9 Souveränitätsdimensionen × 3 Ebenen (Regulatorisch / Organisatorisch / Technisch), 27 Fragen, Weakest-Link-Scoring
+3. **Ergebnis & Empfehlung** – Reifegrad-Auswertung mit Dimension-Tabelle und provider-spezifischer Einschätzung
 
 ### Das ES³-Assessment
 
@@ -32,7 +34,7 @@ Das Organisations-Assessment basiert auf dem **European Sovereign Stack Standard
 | Environmental Sustainability | Ressourceneffizienz und Resilienz |
 | Artificial Intelligence | KI-Governance und Kontrolle über KI-Systeme |
 
-**Scoring:** Weakest-Link-Prinzip – das Gesamt-Level bestimmt die schwächste Dimension.
+**Scoring:** Weakest-Link-Prinzip – das Gesamt-Level entspricht der schwächsten Dimension.
 
 **Reifegrade (SML):**
 - Initial (0–25)
@@ -50,7 +52,7 @@ Kein Build-Prozess, kein npm install – einfach die `index.html` im Browser öf
 open index.html
 ```
 
-Oder per lokalen Server (empfohlen für ES-Module):
+Oder per lokalem Server (empfohlen für ES-Module):
 
 ```bash
 python3 -m http.server 8080
@@ -71,11 +73,11 @@ Erwartung: 29 Tests grün (SML-Scoring, Fragebogen-Validierung, Provider-Match-L
 
 ## Technologie
 
-- Vanilla JS, ES Modules (kein Build-Prozess, offline-fähig)
+- Vanilla JS, ES Modules (kein Build-Prozess, offline-fähig, mobil optimiert)
 - Node.js `node --test` für Unit-Tests der Logik-Module
 - Basiert auf SCC v4.0.0 (EU SEAL, BSI C3A v1.0, SOV-7)
 
-## Architektur (neue Module)
+## Architektur
 
 | Datei | Verantwortung |
 |---|---|
@@ -84,6 +86,8 @@ Erwartung: 29 Tests grün (SML-Scoring, Fragebogen-Validierung, Provider-Match-L
 | `js/modules/provider-match.js` | Match-Logik: Provider + SML-Level → Empfehlung |
 | `js/sbd-assessment-ui.js` | Assessment-UI (Step 2) |
 | `js/sbd-result-ui.js` | Ergebnis-UI (Step 3) |
+| `js/data/providers.js` | SCC_DATA-Aggregator inkl. View-Mode & ES³-Ableitung |
+| `js/data/sov-framework.js` | ES3_LEVELS, ES3_ZONES, SEAL_LEVELS, SOV_CRITERIA |
 
 ---
 
