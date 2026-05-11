@@ -735,9 +735,9 @@
             name.textContent = e.detail.name;
             bar.hidden = false;
             bar.classList.add('visible');
-            // Padding so the last cards stay above the bar
+            // Padding so the last cards stay scrollable above the bar
             var step1 = document.getElementById('step-1');
-            if (step1) step1.style.paddingBottom = (bar.offsetHeight + 24) + 'px';
+            if (step1) step1.style.paddingBottom = '96px';
         });
         var continueBtn = document.getElementById('providerSelectionContinue');
         if (continueBtn) {
