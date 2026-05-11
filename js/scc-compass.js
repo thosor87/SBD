@@ -200,7 +200,7 @@
                     <div class="chp-badges">
                         ${seal ? `<span class="chp-badge seal-badge seal-badge-${seal.level}"><i class="fa-solid fa-shield-halved"></i> ${seal.shortLabel}</span>` : ''}
                         ${c3aScores ? `<span class="chp-badge c3a-badge c3a-badge-${c3aCls}"><i class="fa-solid fa-circle-check"></i> C3A ${c3aScores.total}</span>` : ''}
-                        ${es3Data?.certified ? `<span class="chp-badge es3-badge es3-badge-certified" title="${es3Data.note}"><i class="fa-solid fa-star"></i> ES³ certified</span>` : ''}
+                        ${es3Data?.certified ? `<span class="chp-badge es3-badge es3-badge-certified" title="${es3Data.note}"><i class="fa-solid fa-circle-check"></i> ES³ certified</span>` : ''}
                     </div>
                     <div class="chp-metrics">
                         <div class="chp-metric">
@@ -311,7 +311,7 @@
             // ES³-Certified Badge (immer, unabhängig vom View-Mode)
             const es3CertBadge = es3Data?.certified ? `
                 <span class="es3-badge es3-badge-certified" title="${es3Data.note}">
-                    <i class="fa-solid fa-star"></i> ES³ certified
+                    <i class="fa-solid fa-circle-check"></i> ES³ certified
                 </span>` : '';
 
             // ES³-Derived Badge (BTC-Einschätzung via SOV-Scores)
@@ -650,7 +650,7 @@
                     <i class="fa-solid fa-star"></i> ES³ ${es3DerivedLevel.label}
                 </span>` : ''}
                 ${es3DataHeader?.certified ? `<span class="es3-badge es3-badge-certified" title="${es3DataHeader.note}">
-                    <i class="fa-solid fa-certificate"></i> ES³ certified (BDO)
+                    <i class="fa-solid fa-circle-check"></i> ES³ certified (BDO)
                 </span>` : ''}
                 ${seal ? `<span class="seal-badge seal-badge-${seal.level}" title="EU CSF SEAL-Level (gewichteter Mittelwert)">
                     <i class="fa-solid fa-shield-halved"></i> ${seal.shortLabel}
@@ -671,7 +671,7 @@
                     <i class="fa-solid fa-chart-line"></i> Gesamt ${gesamtScore}
                 </span>` : ''}
                 ${es3DataHeader?.certified ? `<span class="es3-badge es3-badge-certified" title="${es3DataHeader.note}">
-                    <i class="fa-solid fa-star"></i> ES³ certified (BDO)
+                    <i class="fa-solid fa-circle-check"></i> ES³ certified (BDO)
                 </span>` : ''}
             `;
         }
