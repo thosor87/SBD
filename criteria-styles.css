@@ -1545,3 +1545,49 @@
         font-size: 0.75rem;
     }
 }
+
+@media (max-width: 480px) {
+    .criteria-page-container {
+        padding: 0.75rem 0;
+    }
+
+    .intro-card,
+    .criteria-card {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .criteria-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .criteria-card h4 {
+        font-size: 1rem;
+    }
+
+    .criteria-intro {
+        font-size: 0.9rem;
+    }
+
+    .provider-scores-table th,
+    .provider-scores-table td {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .provider-mini-logo {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+
+    .scores-table-header,
+    .scores-table-row {
+        font-size: 0.78rem;
+        padding: 0.6rem 0.4rem;
+    }
+}

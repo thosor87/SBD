@@ -4720,3 +4720,219 @@ body {
     .provider-selection-bar { flex-direction: column; align-items: stretch; }
     .provider-selection-btn { justify-content: center; }
 }
+
+/* ============================================================
+ * MOBILE OPTIMIERUNGEN – Step-Nav, Step 2, Step 3
+ * ============================================================ */
+
+/* Step-Navigation */
+@media (max-width: 768px) {
+    .step-nav {
+        padding: 10px 12px;
+        gap: 6px;
+    }
+    .step-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+    .step-label {
+        display: none;
+    }
+    .step-btn-active .step-label,
+    .step-btn.done .step-label {
+        display: inline;
+    }
+    .step-arrow {
+        font-size: 0.85rem;
+    }
+    .provider-selection-bar {
+        padding-bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+@media (max-width: 400px) {
+    .step-label {
+        display: none !important;
+    }
+}
+
+/* Card-Header Toggles auf schmalen Screens */
+@media (max-width: 768px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card-header-toggles {
+        margin-left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .card-header-toggles .audit-mode-toggle {
+        width: 100%;
+        justify-content: stretch;
+    }
+    .card-header-toggles .audit-mode-toggle-label {
+        display: none;
+    }
+    .card-header-toggles .audit-mode-btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+/* ===== Step 2 – ES³ Assessment ===== */
+@media (max-width: 768px) {
+    .es3-assessment {
+        padding: 20px 16px;
+    }
+    .es3-assessment-header {
+        margin-bottom: 20px;
+    }
+    .es3-assessment-header h2 {
+        font-size: 1.4rem;
+    }
+    .es3-dim-summary {
+        flex-wrap: wrap;
+        padding: 12px 14px;
+        gap: 6px;
+    }
+    .es3-dim-label {
+        min-width: unset;
+        width: 100%;
+        font-size: 0.88rem;
+    }
+    .es3-dim-desc {
+        width: 100%;
+        font-size: 0.78rem;
+    }
+    .es3-dim-score {
+        margin-left: auto;
+    }
+    .es3-dim-questions {
+        padding: 8px 12px 14px;
+        gap: 16px;
+    }
+    .es3-question {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    .es3-q-level {
+        font-size: 10px;
+    }
+    .es3-q-text {
+        font-size: 0.85rem;
+    }
+    .es3-q-options {
+        justify-content: flex-start;
+        gap: 6px;
+    }
+    .es3-q-options label {
+        padding: 7px 14px;
+        font-size: 0.82rem;
+        min-height: 36px;
+    }
+    .es3-assessment-footer {
+        margin-top: 20px;
+    }
+    .es3-btn-primary {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .es3-assessment {
+        padding: 16px 12px;
+    }
+    .es3-dim-questions {
+        padding: 8px 8px 12px;
+    }
+    .es3-q-options label {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== Step 3 – ES³ Ergebnis ===== */
+@media (max-width: 768px) {
+    .es3-result {
+        padding: 20px 16px;
+    }
+    .es3-result-header {
+        margin-bottom: 20px;
+    }
+    .es3-result-header h2 {
+        font-size: 1.4rem;
+    }
+    .es3-sml-badge {
+        font-size: 1rem;
+        padding: 8px 18px;
+        border-radius: 20px;
+    }
+    .es3-dim-table-wrap {
+        margin: 16px 0;
+    }
+    .es3-dim-table {
+        min-width: 360px;
+        font-size: 0.82rem;
+    }
+    .es3-dim-table td,
+    .es3-dim-table th {
+        padding: 8px 10px;
+    }
+    .es3-match-box {
+        padding: 16px 16px;
+        border-radius: 10px;
+        margin: 16px 0;
+    }
+    .es3-match-box h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    .es3-match-box p {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+    .es3-cta-btn {
+        display: block;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+    .es3-result-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-top: 20px;
+    }
+    .es3-btn-secondary {
+        width: 100%;
+        padding: 12px 18px;
+        text-align: center;
+        min-height: 44px;
+    }
+    .es3-weakest-hint {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .es3-result {
+        padding: 16px 12px;
+    }
+    .es3-sml-badge {
+        font-size: 0.95rem;
+        padding: 7px 14px;
+    }
+    .es3-dim-table {
+        font-size: 0.78rem;
+    }
+    .es3-dim-table td,
+    .es3-dim-table th {
+        padding: 7px 8px;
+    }
+}
