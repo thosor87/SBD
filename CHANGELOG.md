@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.1.0] – 2026-05-11
+
+### Added
+
+- **ES³/SEAL View Toggle**: Umschalter im Card-Header (Default: ES³). Im ES³-Modus zeigt jede Provider-Card ein abgeleitetes ES³-SML-Level (Initial / Managed / Advanced / Future-Proof) auf Basis der SOV-1…8-Scores (Weakest-Link). Nur STACKIT hat zusätzlich den „ES³ certified"-Badge (BDO-auditiert). Im SEAL-Modus erscheinen EU CSF SEAL-Level und BSI-C3A-Score wie bisher.
+- **ES³-certified Filter**: Button „Nur ES³ certified" über den Kategorie-Filtern – blendet alle nicht-zertifizierten Provider aus (aktuell verbleiben: STACKIT).
+- **Offizielles STACKIT-Logo**: SVG aus dem offiziellen STACKIT Brand-Kit ersetzt den bisherigen Platzhalter.
+- **Umami Analytics**: website-id auf SBD-spezifisches Tracking aktualisiert.
+- **`getProviderES3DerivedLevel(id)`** in `window.SCC_DATA`: Leitet das ES³-SML-Level aus den SOV-Scores eines Providers ab – BTC-Einschätzung, kein offizielles ES³-Audit.
+- **`getViewMode()` / `setViewMode()`** in `window.SCC_DATA`: View-Mode-State mit `localStorage`-Persistenz.
+
+---
+
 ## [1.0.0] – 2026-05-11
 
 Initial release – Sovereignty by Design Platform.
