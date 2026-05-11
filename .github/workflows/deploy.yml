@@ -1,0 +1,34 @@
+name: Deploy to STACKIT Object Storage
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload to STACKIT Object Storage (S3-compatible)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.STACKIT_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.STACKIT_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: eu01
+        run: |
+          aws s3 sync . s3://${{ vars.STACKIT_BUCKET_NAME }} \
+            --endpoint-url https://object.storage.eu01.onstackit.cloud \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "tests/*" \
+            --exclude "node_modules/*" \
+            --exclude "*.mjs" \
+            --cache-control "public, max-age=3600" \
+
+          # HTML ohne Cache (damit Updates sofort sichtbar sind)
+          aws s3 cp index.html s3://${{ vars.STACKIT_BUCKET_NAME }}/index.html \
+            --endpoint-url https://object.storage.eu01.onstackit.cloud \
+            --cache-control "no-cache, no-store, must-revalidate" \
+            --content-type "text/html; charset=utf-8"
