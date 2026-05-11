@@ -673,5 +673,14 @@
             }
         });
     </script>
+    <script type="module">
+        import { renderResult } from './js/sbd-result-ui.js';
+        window.addEventListener('sml-result-ready', function(e) {
+            var container = document.getElementById('es3-result-container');
+            if (container) {
+                renderResult(container, e.detail, window._selectedProvider || null);
+            }
+        });
+    </script>
 </body>
 </html>
