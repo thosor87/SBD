@@ -735,13 +735,15 @@
             name.textContent = e.detail.name;
             bar.hidden = false;
             bar.classList.add('visible');
+            // Padding so the last cards stay above the bar
+            var step1 = document.getElementById('step-1');
+            if (step1) step1.style.paddingBottom = (bar.offsetHeight + 24) + 'px';
         });
         var continueBtn = document.getElementById('providerSelectionContinue');
         if (continueBtn) {
             continueBtn.addEventListener('click', function() {
-                // Step-1-Button als "done" markieren
                 var s1 = document.querySelector('[data-step="1"]');
-                if (s1) s1.classList.add('done');
+                if (s1) { s1.classList.add('done'); s1.style.paddingBottom = ''; }
                 activateStep(2);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
