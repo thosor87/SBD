@@ -23,6 +23,7 @@ Initial release – Sovereignty by Design Platform.
 - **ES³-certified Filter**: Button „Nur ES³ certified" – blendet alle nicht-zertifizierten Provider aus (aktuell: nur STACKIT ist BDO-auditiert zertifiziert).
 - **ES³-Badge**: STACKIT erhält „ES³ certified"-Badge in Result-Card, Hover-Popup und SOV-Panel.
 - **`getProviderES3DerivedLevel(id)`**, **`getViewMode()` / `setViewMode()`** in `window.SCC_DATA`
+- **SOV-Panel ES³-Modus**: Im ES³-Modus zeigt das Detail-Panel jeden Provider mit ES³-Perspektive: ES³ SML-Level prominent im Header, Hero-Metrik zeigt ES³ SML + Weakest-Link-Score, aufgeklappter Formel-Block mit Dimension-Score-Tabelle (D1–D8 mit Scores, Level, Weakest-Link-Markierung), jede SOV-Zeile erhält ES³-Dimensions-Tag (z. B. „ES³ D5") und orange Weakest-Link-Badge bei der schwächsten Dimension. Im SEAL-Modus bleibt die bisherige Ansicht (SEAL + C3A + Gewichtungsformel) unverändert.
 
 **Step 2 – Organisations-Assessment**
 - **ES³-Assessment**: 9 Souveränitätsdimensionen × 3 Ebenen (Regulatorisch / Organisatorisch / Technisch), 27 Fragen
