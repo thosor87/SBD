@@ -632,25 +632,49 @@
         // Header aktualisieren
         providerName.textContent = provider.name;
 
-        // SEAL- + C3A- + Gesamt-Badge im statischen Panel-Header
+        // Aktueller View-Mode (ES³ / SEAL)
+        const viewMode = SCC_DATA.getViewMode ? SCC_DATA.getViewMode() : 'seal';
+
+        // Header-Badges je nach View-Mode
         const seal = SCC_DATA.getSealLevel ? SCC_DATA.getSealLevel(provider.control) : null;
         const c3aScoresHeader = SCC_DATA.getProviderC3AScores ? SCC_DATA.getProviderC3AScores(provider.id) : null;
         const c3aClsHeader = c3aScoresHeader && c3aScoresHeader.total >= 75 ? 'high'
             : (c3aScoresHeader && c3aScoresHeader.total >= 50 ? 'medium' : 'low');
         const gesamtScore = (typeof provider.score === 'number') ? provider.score.toFixed(1) : null;
         const es3DataHeader = SCC_DATA.getProviderES3 ? SCC_DATA.getProviderES3(provider.id) : null;
-        sealBadge.innerHTML = `
-            ${seal ? `<span class="seal-badge seal-badge-${seal.level}">
-                <i class="fa-solid fa-shield-halved"></i> ${seal.shortLabel}
-            </span>` : ''}
-            ${c3aScoresHeader ? `<span class="c3a-badge c3a-badge-${c3aClsHeader}" title="BSI C3A v1.0 — ungewichteter Mittelwert über die 6 SOV-Buckets (SOV-1…6 aus C3A-Aggregation)">
-                <i class="fa-solid fa-circle-check"></i> C3A ${c3aScoresHeader.total}
-            </span>` : ''}
-            ${gesamtScore !== null ? `<span class="overall-badge" title="Gesamt-Score gemäß aktuellem Slider (Kontrolle vs. Leistung gewichtet)">
-                <i class="fa-solid fa-chart-line"></i> Gesamt ${gesamtScore}
-            </span>` : ''}
-            ${es3DataHeader?.certified ? `<span class="es3-badge es3-badge-certified" title="${es3DataHeader.note}"><i class="fa-solid fa-star"></i> ES³ certified (BDO)</span>` : ''}
-        `;
+        const es3DerivedLevel = SCC_DATA.getProviderES3DerivedLevel ? SCC_DATA.getProviderES3DerivedLevel(provider.id) : null;
+
+        if (viewMode === 'es3') {
+            sealBadge.innerHTML = `
+                ${es3DerivedLevel ? `<span class="seal-badge seal-badge-es3 es3-sml-${es3DerivedLevel.id}" title="BTC-Einschätzung auf Basis der SOV-1…8 Scores — kein offizielles ES³-Audit">
+                    <i class="fa-solid fa-star"></i> ES³ ${es3DerivedLevel.label}
+                </span>` : ''}
+                ${es3DataHeader?.certified ? `<span class="es3-badge es3-badge-certified" title="${es3DataHeader.note}">
+                    <i class="fa-solid fa-certificate"></i> ES³ certified (BDO)
+                </span>` : ''}
+                ${seal ? `<span class="seal-badge seal-badge-${seal.level}" title="EU CSF SEAL-Level (gewichteter Mittelwert)">
+                    <i class="fa-solid fa-shield-halved"></i> ${seal.shortLabel}
+                </span>` : ''}
+                ${c3aScoresHeader ? `<span class="c3a-badge c3a-badge-${c3aClsHeader}" title="BSI C3A v1.0">
+                    <i class="fa-solid fa-circle-check"></i> C3A ${c3aScoresHeader.total}
+                </span>` : ''}
+            `;
+        } else {
+            sealBadge.innerHTML = `
+                ${seal ? `<span class="seal-badge seal-badge-${seal.level}">
+                    <i class="fa-solid fa-shield-halved"></i> ${seal.shortLabel}
+                </span>` : ''}
+                ${c3aScoresHeader ? `<span class="c3a-badge c3a-badge-${c3aClsHeader}" title="BSI C3A v1.0 — ungewichteter Mittelwert über die 6 SOV-Buckets (SOV-1…6 aus C3A-Aggregation)">
+                    <i class="fa-solid fa-circle-check"></i> C3A ${c3aScoresHeader.total}
+                </span>` : ''}
+                ${gesamtScore !== null ? `<span class="overall-badge" title="Gesamt-Score gemäß aktuellem Slider (Kontrolle vs. Leistung gewichtet)">
+                    <i class="fa-solid fa-chart-line"></i> Gesamt ${gesamtScore}
+                </span>` : ''}
+                ${es3DataHeader?.certified ? `<span class="es3-badge es3-badge-certified" title="${es3DataHeader.note}">
+                    <i class="fa-solid fa-star"></i> ES³ certified (BDO)
+                </span>` : ''}
+            `;
+        }
 
         // SOV-Scores und Erklärungen laden
         const sovScores = SCC_DATA.getProviderSovScores ? SCC_DATA.getProviderSovScores(provider.id) : null;
@@ -680,6 +704,22 @@
 
             // Aktueller Audit-Mode (C1/C2) für Drilldown-Logik
             const auditMode = SCC_DATA.getAuditMode ? SCC_DATA.getAuditMode() : 'c1';
+
+            // ES³-Dimension-Mapping (SOV-Schlüssel → ES³-Dimension)
+            const ES3_DIM_MAP = {
+                sov1: { id: 'd1', label: 'Strategic Sovereignty' },
+                sov2: { id: 'd2', label: 'Legal & Jurisdictional' },
+                sov3: { id: 'd3', label: 'Data' },
+                sov4: { id: 'd4', label: 'Operational' },
+                sov5: { id: 'd5', label: 'Supply Chain' },
+                sov6: { id: 'd6', label: 'Technology' },
+                sov7: { id: 'd7', label: 'Security & Compliance' },
+                sov8: { id: 'd8', label: 'Environmental Sustainability' },
+            };
+            // Schwächster SOV-Score für Weakest-Link-Markierung
+            const es3AllScores = ['sov1','sov2','sov3','sov4','sov5','sov6','sov7','sov8']
+                .map(k => sovScores[k]).filter(s => s != null);
+            const es3WeakestScore = es3AllScores.length ? Math.min(...es3AllScores) : 0;
 
             // Hilfsfunktion: Liste der C3A-Einzelkriterien einer SOV-Kategorie
             function buildC3ACriteriaList(sovKey) {
@@ -767,27 +807,103 @@
             }
 
             // Hero mit Stern-Spider und Metriken
+            const heroMetricPrimary = viewMode === 'es3'
+                ? `<div class="sov-panel-hero-metric" title="Matrix-Position (ES³-Modus) · Schwächster Einzelwert über SOV-1…8 (Weakest-Link)">
+                    <div class="sov-panel-hero-metric-label">ES³ SML</div>
+                    <div class="sov-panel-hero-metric-value" style="font-size:13px;line-height:1.2">${es3DerivedLevel ? es3DerivedLevel.label : '–'}</div>
+                    <div class="sov-panel-hero-metric-hint" style="color:${es3DerivedLevel ? es3DerivedLevel.color : 'inherit'}">${es3WeakestScore} / 100</div>
+                  </div>`
+                : `<div class="sov-panel-hero-metric" title="Y-Achse der Matrix · gewichtet aus EU CSF SOV-1…8">
+                    <div class="sov-panel-hero-metric-label">Kontrolle</div>
+                    <div class="sov-panel-hero-metric-value">${kontrolle}</div>
+                    <div class="sov-panel-hero-metric-hint">EU CSF</div>
+                  </div>`;
+
             let html = `
                 <div class="sov-panel-hero">
                     <div class="sov-panel-star">${renderStarSvg(provider.id, 50)}</div>
                     <div class="sov-panel-hero-info">
                         <div class="sov-panel-hero-metrics">
-                            <div class="sov-panel-hero-metric" title="Y-Achse der Matrix · gewichtet aus EU CSF SOV-1…8">
-                                <div class="sov-panel-hero-metric-label">Kontrolle</div>
-                                <div class="sov-panel-hero-metric-value">${kontrolle}</div>
-                                <div class="sov-panel-hero-metric-hint">EU CSF</div>
-                            </div>
+                            ${heroMetricPrimary}
                             <div class="sov-panel-hero-metric" title="X-Achse der Matrix · BTC-Bewertung von Service-Portfolio &amp; Reife">
                                 <div class="sov-panel-hero-metric-label">Leistung</div>
                                 <div class="sov-panel-hero-metric-value">${provider.performance}</div>
                                 <div class="sov-panel-hero-metric-hint">BTC</div>
                             </div>
                         </div>
-                        <a href="https://commission.europa.eu/document/09579818-64a6-4dd5-9577-446ab6219113_en" target="_blank" rel="noopener" class="sov-panel-hero-hint">
-                            <i class="fa-solid fa-circle-info"></i> Gewichtung gem. EU Cloud Sovereignty Framework
-                        </a>
+                        ${viewMode === 'es3'
+                            ? `<span class="sov-panel-hero-hint">
+                                <i class="fa-solid fa-star"></i> ES³-Einschätzung (BTC) · Weakest-Link aus SOV-1…8
+                               </span>`
+                            : `<a href="https://commission.europa.eu/document/09579818-64a6-4dd5-9577-446ab6219113_en" target="_blank" rel="noopener" class="sov-panel-hero-hint">
+                                <i class="fa-solid fa-circle-info"></i> Gewichtung gem. EU Cloud Sovereignty Framework
+                               </a>`
+                        }
                     </div>
                 </div>
+            `;
+
+            // Formel-/Erklärungs-Block je nach View-Mode
+            if (viewMode === 'es3') {
+                // ES³-Weakest-Link-Tabelle mit allen 8 Dimensionen
+                const dimRows = ['sov1','sov2','sov3','sov4','sov5','sov6','sov7','sov8'].map(k => {
+                    const s = sovScores[k] ?? 0;
+                    const dim = ES3_DIM_MAP[k];
+                    const isWeakest = s === es3WeakestScore;
+                    const lvl = SCC_DATA.ES3_LEVELS
+                        ? (s >= 76 ? SCC_DATA.ES3_LEVELS.FUTURE_PROOF
+                            : s >= 51 ? SCC_DATA.ES3_LEVELS.ADVANCED
+                            : s >= 26 ? SCC_DATA.ES3_LEVELS.MANAGED
+                            : SCC_DATA.ES3_LEVELS.INITIAL)
+                        : null;
+                    const lvlColor = lvl ? lvl.color : '#888';
+                    const lvlLabel = lvl ? lvl.label : '–';
+                    return `<li class="${isWeakest ? 'es3-weakest-link-row' : ''}">
+                        <span class="es3-dim-id">${dim.id.toUpperCase()}</span>
+                        <span class="es3-dim-name">${dim.label}</span>
+                        <span class="es3-dim-score" style="color:${lvlColor}">${s} <small>${lvlLabel}</small>${isWeakest ? ' <i class="fa-solid fa-link-slash es3-weakest-icon" title="Schwächste Dimension – bestimmt das Gesamt-Level"></i>' : ''}</span>
+                    </li>`;
+                }).join('');
+
+                html += `
+                <details class="sov-panel-formula sov-panel-formula-es3" open>
+                    <summary>
+                        <i class="fa-solid fa-star"></i>
+                        Wie berechnet sich das <strong>ES³-SML-Level</strong>?
+                        <i class="fa-solid fa-chevron-down sov-panel-formula-chevron"></i>
+                    </summary>
+                    <div class="sov-panel-formula-body">
+                        <p>
+                            Das <strong>ES³-SML-Level</strong> basiert auf dem <em>European Sovereign Stack Standard</em>
+                            (entwickelt von Schwarz Digits/STACKIT, auditiert durch BDO). BTC leitet für alle Provider
+                            ein vergleichbares ES³-Level ab — als Einschätzung, kein offizielles Audit.
+                        </p>
+                        <p>
+                            <strong>Methodik: Weakest-Link-Prinzip.</strong>
+                            Das Gesamt-Level entspricht dem <em>niedrigsten</em> Einzelwert über alle 8 ES³-Dimensionen.
+                            Eine schwache Dimension zieht das Gesamtlevel nach unten, unabhängig davon wie gut
+                            die anderen Dimensionen abschneiden.
+                        </p>
+                        <ul class="sov-panel-formula-weights es3-dim-score-table">
+                            ${dimRows}
+                        </ul>
+                        <p class="sov-panel-formula-note">
+                            <i class="fa-solid fa-link-slash es3-weakest-icon"></i>
+                            Die markierte Dimension bestimmt das Gesamt-ES³-Level: <strong>${es3DerivedLevel ? es3DerivedLevel.label : '–'}</strong>
+                            (Score ${es3WeakestScore}). Schwellen: Initial 0–25 · Managed 26–50 · Advanced 51–75 · Future-Proof 76–100.
+                        </p>
+                        <p class="sov-panel-formula-note">
+                            Die Einzelscores basieren auf BSI C3A v1.0 (SOV-1…6), dem SCC SOV-7 Compliance-Katalog
+                            und BTC-Experten-Einschätzung (SOV-8).
+                            ${es3DataHeader?.certified
+                                ? `STACKIT ist der einzige Provider mit offiziellem ES³-Audit (BDO).`
+                                : `Für diesen Provider liegt kein offizielles ES³-Audit vor.`}
+                        </p>
+                    </div>
+                </details>
+                `;
+            } else {
+                html += `
                 <details class="sov-panel-formula">
                     <summary>
                         <i class="fa-solid fa-calculator"></i>
@@ -823,7 +939,8 @@
                         </p>
                     </div>
                 </details>
-            `;
+                `;
+            }
 
             // Konsolidierte SOV-Liste mit ausklappbarem Drilldown je SOV
             Object.entries(sovCriteria).forEach(([key, criteria]) => {
@@ -836,6 +953,19 @@
                     ? `<span class="sov-row-source sov-row-source-${sourceMeta.tag.toLowerCase().replace(/[^a-z0-9]/g,'')}" title="${sourceMeta.title}">${sourceMeta.tag}</span>`
                     : '';
 
+                // ES³-Dimension-Info (nur im ES³-Modus)
+                const es3Dim = ES3_DIM_MAP[scoreKey];
+                const isWeakest = viewMode === 'es3' && score === es3WeakestScore;
+                const es3Tag = viewMode === 'es3' && es3Dim
+                    ? `<span class="sov-row-source sov-row-source-es3" title="ES³-Dimension ${es3Dim.id.toUpperCase()}: ${es3Dim.label}">ES³ ${es3Dim.id.toUpperCase()}</span>`
+                    : '';
+                const weakestTag = isWeakest
+                    ? `<span class="sov-row-weakest-tag" title="Schwächste Dimension — bestimmt das ES³-Gesamt-Level"><i class="fa-solid fa-link-slash"></i> Weakest-Link</span>`
+                    : '';
+                const es3SubMeta = viewMode === 'es3' && es3Dim
+                    ? `${es3Dim.label}`
+                    : criteria.shortName;
+
                 // Drilldown-Inhalt je nach Quelle
                 let drilldown = '';
                 if (scoreKey === 'sov7') {
@@ -847,12 +977,12 @@
                 }
 
                 html += `
-                    <details class="sov-row sov-row-${scoreClass}">
+                    <details class="sov-row sov-row-${scoreClass}${isWeakest ? ' sov-row-weakest' : ''}">
                         <summary class="sov-row-summary">
                             <div class="sov-row-icon"><i class="fa-solid ${criteria.icon}"></i></div>
                             <div class="sov-row-titles">
-                                <div class="sov-row-name">${criteria.name} ${sourceTag}</div>
-                                <div class="sov-row-meta">${criteria.shortName}</div>
+                                <div class="sov-row-name">${criteria.name} ${sourceTag}${es3Tag}${weakestTag}</div>
+                                <div class="sov-row-meta">${es3SubMeta}</div>
                             </div>
                             <div class="sov-row-score sov-row-score-${scoreClass}">${score}</div>
                             <i class="fa-solid fa-chevron-down sov-row-chevron"></i>

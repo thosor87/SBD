@@ -3940,6 +3940,36 @@ body {
 [data-theme="dark"] .sov-row-source-sov7   { background: rgba(16, 185, 129, 0.25); color: #6ee7b7; }
 [data-theme="dark"] .sov-row-source-experten { background: rgba(245, 158, 11, 0.25); color: #fcd34d; }
 
+/* ES³-Dimensions-Tag in SOV-Rows */
+.sov-row-source-es3 {
+    background: rgba(0, 194, 199, 0.12);
+    color: #0891b2;
+    border-color: rgba(0, 194, 199, 0.35);
+}
+[data-theme="dark"] .sov-row-source-es3 { background: rgba(0, 194, 199, 0.22); color: #67e8f9; }
+
+/* Weakest-Link Tag */
+.sov-row-weakest-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: rgba(249, 115, 22, 0.12);
+    color: #ea580c;
+    border: 1px solid rgba(249, 115, 22, 0.35);
+    margin-left: 4px;
+}
+[data-theme="dark"] .sov-row-weakest-tag { background: rgba(249, 115, 22, 0.22); color: #fb923c; }
+
+/* SOV-Row Weakest-Link Hervorhebung */
+.sov-row.sov-row-weakest {
+    border-left: 3px solid #f97316;
+}
+[data-theme="dark"] .sov-row.sov-row-weakest { border-left-color: #fb923c; }
+
 .sov-row-score {
     min-width: 2.6rem;
     text-align: center;
@@ -4181,6 +4211,54 @@ body {
     border-top: 1px dashed var(--border-color);
     font-size: 0.72rem;
 }
+
+/* ES³-Formel-Block: Teal-Akzent statt Grau */
+.sov-panel-formula-es3 summary > i:first-child {
+    color: #0891b2;
+}
+[data-theme="dark"] .sov-panel-formula-es3 summary > i:first-child { color: #22d3ee; }
+
+/* ES³-Dimension-Score-Tabelle im Formel-Block */
+.es3-dim-score-table {
+    list-style: none;
+    padding: 0;
+    margin: 0.6rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.es3-dim-score-table li {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    gap: 8px;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    background: var(--bg-secondary);
+}
+.es3-dim-score-table li.es3-weakest-link-row {
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+[data-theme="dark"] .es3-dim-score-table li.es3-weakest-link-row {
+    background: rgba(249, 115, 22, 0.18);
+}
+.es3-dim-id {
+    font-size: 10px;
+    font-weight: 700;
+    color: #0891b2;
+    background: rgba(0, 194, 199, 0.12);
+    padding: 2px 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+[data-theme="dark"] .es3-dim-id { color: #22d3ee; background: rgba(0, 194, 199, 0.2); }
+.es3-dim-name { color: var(--text-secondary); }
+.es3-dim-score { font-weight: 700; font-size: 0.78rem; text-align: right; }
+.es3-dim-score small { font-size: 10px; font-weight: 400; margin-left: 3px; }
+.es3-weakest-icon { color: #ea580c; font-size: 0.7rem; margin-left: 4px; }
+[data-theme="dark"] .es3-weakest-icon { color: #fb923c; }
 
 /* ============================================================
  * C3A C2-Mode Downgrade-Visualisierung
