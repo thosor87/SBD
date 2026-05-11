@@ -270,11 +270,36 @@
                         </button>
                     </div>
                 </nav>
-                <h1 class="header-title">Sovereign Cloud Compass</h1>
-                <p class="header-subtitle">Ihre intelligente Entscheidungshilfe für souveräne Cloud-Strategien — bewertet nach EU Cloud Sovereignty Framework und BSI C3A</p>
+                <div class="header-brand">
+                    <span class="header-brand-btc">BTC AG</span>
+                    <span class="header-brand-sep">×</span>
+                    <span class="header-brand-stackit">STACKIT</span>
+                </div>
+                <h1 class="header-title">Sovereignty by Design</h1>
+                <p class="header-subtitle">Schritt 1: Die richtige Cloud wählen · Schritt 2: Reifegrad messen · Schritt 3: Empfehlung erhalten</p>
             </div>
         </header>
 
+        <!-- Step-Navigation -->
+        <nav class="step-nav" aria-label="Schritte">
+            <button class="step-btn step-btn-active" data-step="1" type="button">
+                <span class="step-num">1</span>
+                <span class="step-label">Provider wählen</span>
+            </button>
+            <span class="step-arrow" aria-hidden="true">→</span>
+            <button class="step-btn" data-step="2" type="button">
+                <span class="step-num">2</span>
+                <span class="step-label">Organisation bewerten</span>
+            </button>
+            <span class="step-arrow" aria-hidden="true">→</span>
+            <button class="step-btn" data-step="3" type="button">
+                <span class="step-num">3</span>
+                <span class="step-label">Ergebnis & Empfehlung</span>
+            </button>
+        </nav>
+
+        <!-- Step 1: Provider-Vergleich (SCC) -->
+        <section id="step-1" class="step-section">
         <!-- Main -->
         <main class="main" id="main-content" role="main" aria-label="Hauptinhalt">
             <div class="container">
@@ -548,6 +573,17 @@
                 </div>
             </div>
         </main>
+        </section><!-- /step-1 -->
+
+        <!-- Step 2: ES³-Assessment -->
+        <section id="step-2" class="step-section es3-zone" hidden>
+            <div id="es3-assessment-container"></div>
+        </section>
+
+        <!-- Step 3: Ergebnis & Empfehlung -->
+        <section id="step-3" class="step-section es3-zone" hidden>
+            <div id="es3-result-container"></div>
+        </section>
 
         <!-- SOV Detail Slide-out Panel -->
         <div class="sov-panel-overlay" id="sovPanelOverlay"></div>
@@ -607,5 +643,26 @@
     <script src="js/core/utils.js"></script>
     <script src="js/components/chart.js"></script>
     <script src="js/scc-compass.js"></script>
+    <script>
+    (function() {
+        function activateStep(stepNum) {
+            document.querySelectorAll('.step-section').forEach(function(s) { s.hidden = true; });
+            document.querySelectorAll('.step-btn').forEach(function(b) {
+                b.classList.remove('step-btn-active');
+            });
+            var section = document.getElementById('step-' + stepNum);
+            if (section) section.hidden = false;
+            var btn = document.querySelector('[data-step="' + stepNum + '"]');
+            if (btn) btn.classList.add('step-btn-active');
+        }
+        document.querySelectorAll('.step-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                activateStep(btn.dataset.step);
+            });
+        });
+        // Step 1 initial aktivieren
+        activateStep(1);
+    })();
+    </script>
 </body>
 </html>
