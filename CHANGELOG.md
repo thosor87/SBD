@@ -1,6 +1,35 @@
 # Changelog
 
-All notable changes to the Sovereign Cloud Compass project will be documented in this file.
+All notable changes to the Sovereignty by Design Platform (SBD) are documented here.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+
+---
+
+## [1.0.0] – 2026-05-11
+
+Initial release – Sovereignty by Design Platform.
+
+### Added
+
+- **3-Step-Navigation**: Geführter Flow Provider wählen → Organisation bewerten → Ergebnis
+- **Co-Branding**: BTC AG × STACKIT Header
+- **ES³-Assessment** (Step 2): 9 Souveränitätsdimensionen × 3 Ebenen (Reg/Org/Tech), 27 Fragen
+- **SML-Scoring** mit Weakest-Link-Prinzip: Initial / Managed / Advanced / Future-Proof
+- **Provider-Match** (Step 3): STACKIT → positiv (ES³ certified, BDO-auditiert), andere → neutral
+- **ES³-Badge**: STACKIT in Result-Card, Hover-Popup und SOV-Panel
+- **29 Unit-Tests** (TDD) für alle Logik-Module (`sml-assessment`, `es3-questions`, `provider-match`)
+
+### Based on
+
+Sovereign Cloud Compass (SCC) v4.0.0 – EU SEAL, BSI C3A v1.0, SOV-7, 16 Cloud-Anbieter.
+
+---
+
+## Ältere SCC-Versionen
+
+Dieses Projekt ist ein Fork des Sovereign Cloud Compass (SCC).
+Den ursprünglichen Changelog findest du unter: https://github.com/btc-ag/SCC/blob/main/CHANGELOG.md
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
