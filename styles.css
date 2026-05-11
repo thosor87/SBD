@@ -4293,3 +4293,99 @@ body {
     padding: 32px 24px;
 }
 .es3-zone h2, .es3-zone h3 { color: #00C2C7; }
+
+/* ===== ES³ Assessment UI ===== */
+.es3-assessment {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+.es3-assessment-header { margin-bottom: 28px; }
+.es3-assessment-desc {
+    color: #A0B4C8;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    line-height: 1.6;
+}
+.es3-dimensions { display: flex; flex-direction: column; gap: 10px; }
+.es3-dim-block {
+    border: 1px solid rgba(0, 194, 199, 0.25);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+}
+.es3-dim-summary {
+    padding: 14px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+    user-select: none;
+}
+.es3-dim-summary::-webkit-details-marker { display: none; }
+.es3-dim-label {
+    font-weight: 700;
+    color: #00C2C7;
+    min-width: 200px;
+    font-size: 0.9rem;
+}
+.es3-dim-desc {
+    color: #A0B4C8;
+    font-size: 0.8rem;
+    flex: 1;
+}
+.es3-dim-score {
+    font-weight: 700;
+    font-size: 0.85rem;
+    min-width: 36px;
+    text-align: right;
+    color: #00C2C7;
+}
+.es3-dim-questions {
+    padding: 4px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border-top: 1px solid rgba(0, 194, 199, 0.15);
+}
+.es3-question {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+.es3-q-level {
+    font-size: 10px;
+    font-weight: 700;
+    color: #00C2C7;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.es3-q-text { color: #e2e8f0; font-size: 0.85rem; line-height: 1.4; }
+.es3-q-options {
+    display: flex;
+    gap: 10px;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+.es3-q-options label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    color: #A0B4C8;
+    white-space: nowrap;
+}
+.es3-assessment-footer { margin-top: 28px; }
+.es3-btn-primary {
+    background: #00C2C7;
+    color: #0D1B2A;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.es3-btn-primary:hover { background: #00a8ad; }
