@@ -628,6 +628,17 @@
                 </div>
             </div>
         </main>
+        <!-- Floating Provider Selection Bar -->
+        <div id="providerSelectionBar" class="provider-selection-bar" hidden aria-live="polite">
+            <div class="provider-selection-info">
+                <i class="fa-solid fa-circle-check provider-selection-icon"></i>
+                <span id="providerSelectionName" class="provider-selection-name">–</span>
+                <span class="provider-selection-hint">ausgewählt</span>
+            </div>
+            <button type="button" id="providerSelectionContinue" class="provider-selection-btn">
+                Weiter zu Schritt&nbsp;2 <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
         </section><!-- /step-1 -->
 
         <!-- Step 2: ES³-Assessment -->
@@ -715,17 +726,41 @@
                 activateStep(btn.dataset.step);
             });
         });
+
+        // Floating Provider Selection Bar
+        window.addEventListener('sbd-provider-selected', function(e) {
+            var bar  = document.getElementById('providerSelectionBar');
+            var name = document.getElementById('providerSelectionName');
+            if (!bar || !name) return;
+            name.textContent = e.detail.name;
+            bar.hidden = false;
+            bar.classList.add('visible');
+        });
+        var continueBtn = document.getElementById('providerSelectionContinue');
+        if (continueBtn) {
+            continueBtn.addEventListener('click', function() {
+                // Step-1-Button als "done" markieren
+                var s1 = document.querySelector('[data-step="1"]');
+                if (s1) s1.classList.add('done');
+                activateStep(2);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
         // Step 1 initial aktivieren
         activateStep(1);
     })();
     </script>
     <script type="module">
         import { renderAssessment } from './js/sbd-assessment-ui.js';
-        document.querySelector('[data-step="2"]').addEventListener('click', function() {
+        function ensureAssessmentLoaded() {
             var container = document.getElementById('es3-assessment-container');
-            if (container && !container.hasChildNodes()) {
-                renderAssessment(container);
-            }
+            if (container && !container.hasChildNodes()) renderAssessment(container);
+        }
+        document.querySelector('[data-step="2"]').addEventListener('click', ensureAssessmentLoaded);
+        // Auch laden, wenn man per "Weiter"-Button in Step 2 springt
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('#providerSelectionContinue')) ensureAssessmentLoaded();
         });
     </script>
     <script type="module">

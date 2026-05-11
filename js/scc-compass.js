@@ -347,10 +347,13 @@
                 </div>
             `;
 
-            // Klick öffnet Sov-Panel (Hover-Popup nur in der Matrix, nicht hier auf den Cards)
+            // Klick öffnet Sov-Panel + Provider-Auswahl-Bar
             card.addEventListener('click', () => {
                 window._selectedProvider = provider.id;
                 openSovPanel(provider);
+                window.dispatchEvent(new CustomEvent('sbd-provider-selected', {
+                    detail: { id: provider.id, name: provider.name }
+                }));
             });
 
             fragment.appendChild(card);
