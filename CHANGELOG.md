@@ -12,15 +12,27 @@ Initial release – Sovereignty by Design Platform.
 
 ### Added
 
+**3-Schritt-Flow**
 - **3-Step-Navigation**: Geführter Flow Provider wählen → Organisation bewerten → Ergebnis
 - **Co-Branding**: BTC AG × STACKIT Header mit offiziellem STACKIT Brand-Kit Logo
-- **ES³-Assessment** (Step 2): 9 Souveränitätsdimensionen × 3 Ebenen (Reg/Org/Tech), 27 Fragen
+
+**Step 1 – Provider-Vergleich (ES³/SEAL-Integration)**
+- **ES³/SEAL View Toggle**: Umschalter im Card-Header, Default ES³. Im ES³-Modus zeigt jede Provider-Card ein abgeleitetes ES³-SML-Level (BTC-Einschätzung aus SOV-1…8-Scores, Weakest-Link-Prinzip). Im SEAL-Modus: EU CSF SEAL-Level + BSI-C3A-Score wie gewohnt.
+- **ES³-Legenden-Karte**: Erklärt Initial / Managed / Advanced / Future-Proof mit Schwellenwerten und Weakest-Link-Hinweis; erscheint automatisch wenn ES³-Modus aktiv, SEAL-Karte wenn SEAL-Modus aktiv.
+- **ES³-Matrix-Zonen**: Hintergrundbänder in der Scatter-Matrix wechseln je nach View-Mode (ES³ oder SEAL).
+- **ES³-certified Filter**: Button „Nur ES³ certified" – blendet alle nicht-zertifizierten Provider aus (aktuell: nur STACKIT ist BDO-auditiert zertifiziert).
+- **ES³-Badge**: STACKIT erhält „ES³ certified"-Badge in Result-Card, Hover-Popup und SOV-Panel.
+- **`getProviderES3DerivedLevel(id)`**, **`getViewMode()` / `setViewMode()`** in `window.SCC_DATA`
+
+**Step 2 – Organisations-Assessment**
+- **ES³-Assessment**: 9 Souveränitätsdimensionen × 3 Ebenen (Regulatorisch / Organisatorisch / Technisch), 27 Fragen
 - **SML-Scoring** mit Weakest-Link-Prinzip: Initial / Managed / Advanced / Future-Proof
-- **Provider-Match** (Step 3): STACKIT → positiv (ES³ certified, BDO-auditiert), andere → neutral
-- **ES³-Badge**: STACKIT in Result-Card, Hover-Popup und SOV-Panel
-- **ES³/SEAL View Toggle** (Step 1): Umschalter im Card-Header, Default ES³. Im ES³-Modus zeigt jede Provider-Card ein abgeleitetes ES³-SML-Level aus den SOV-1…8-Scores (Weakest-Link, BTC-Einschätzung – kein offizielles ES³-Audit). Im SEAL-Modus: EU CSF SEAL-Level + BSI-C3A-Score.
-- **ES³-certified Filter**: Button „Nur ES³ certified" – blendet alle nicht-zertifizierten Provider aus (aktuell: nur STACKIT zertifiziert).
-- **`getProviderES3DerivedLevel(id)`** und **`getViewMode()` / `setViewMode()`** in `window.SCC_DATA`
+
+**Step 3 – Ergebnis & Empfehlung**
+- **Provider-Match**: STACKIT → positiv (ES³ certified, BDO-auditiert), andere Provider → neutrale Einschätzung
+- **Reifegrad-Tabelle**: Alle 9 Dimensionen mit Scores, schwächste Dimension hervorgehoben
+
+**Qualität**
 - **29 Unit-Tests** (TDD) für alle Logik-Module (`sml-assessment`, `es3-questions`, `provider-match`)
 
 ### Based on

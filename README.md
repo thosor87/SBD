@@ -10,7 +10,7 @@ Basierend auf dem [Sovereign Cloud Compass (SCC)](https://github.com/btc-ag/SCC)
 
 Drei Schritte, eine klare Empfehlung:
 
-1. **Provider wählen** – Vollständiger SCC-Provider-Vergleich (16 Anbieter, EU SEAL, BSI C3A v1.0)
+1. **Provider wählen** – Vollständiger SCC-Provider-Vergleich (16 Anbieter) mit ES³/SEAL-Umschalter: Im ES³-Modus (Default) sieht man das abgeleitete ES³-SML-Level je Provider; im SEAL-Modus EU CSF SEAL-Level und BSI-C3A-Score. Nur STACKIT ist offiziell ES³-zertifiziert (BDO-auditiert).
 2. **Organisation bewerten** – ES³-kompatibles Self-Assessment in 9 Souveränitätsdimensionen
 3. **Ergebnis & Empfehlung** – Reifegrad-Auswertung mit provider-spezifischer Einschätzung
 

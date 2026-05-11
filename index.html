@@ -568,8 +568,8 @@
                     <div class="legend-grid" id="legendGrid"></div>
                 </div>
 
-                <!-- SEAL Legend -->
-                <div class="seal-legend-card">
+                <!-- SEAL Legend (sichtbar im SEAL-Modus) -->
+                <div class="seal-legend-card" id="sealLegendCard">
                     <div class="seal-legend-title">
                         <i class="fa-solid fa-shield-halved"></i>
                         EU SEAL-Level (Sovereignty Effective Assurance Levels)
@@ -593,6 +593,38 @@
                         </div>
                     </div>
                     <p class="seal-legend-hint">Orientiert am EU Cloud Sovereignty Framework (Referenz-Dokument der EU-Kommission)</p>
+                </div>
+
+                <!-- ES³ Legend (sichtbar im ES³-Modus, Default) -->
+                <div class="seal-legend-card" id="es3LegendCard" style="display:none">
+                    <div class="seal-legend-title">
+                        <i class="fa-solid fa-star" style="color:#00C2C7"></i>
+                        ES³ Sovereignty Maturity Level (European Sovereign Stack Standard)
+                    </div>
+                    <div class="seal-legend-grid">
+                        <div class="seal-legend-item">
+                            <span class="seal-badge seal-badge-es3 es3-sml-future-proof"><i class="fa-solid fa-star"></i> Future-Proof</span>
+                            <span class="seal-legend-label">Alle 9 Dimensionen ≥ 76 — höchste Souveränitätsreife</span>
+                        </div>
+                        <div class="seal-legend-item">
+                            <span class="seal-badge seal-badge-es3 es3-sml-advanced"><i class="fa-solid fa-star"></i> Advanced</span>
+                            <span class="seal-legend-label">Schwächste Dimension ≥ 51 — fortgeschrittene Reife</span>
+                        </div>
+                        <div class="seal-legend-item">
+                            <span class="seal-badge seal-badge-es3 es3-sml-managed"><i class="fa-solid fa-star"></i> Managed</span>
+                            <span class="seal-legend-label">Schwächste Dimension ≥ 26 — strukturierter Ansatz</span>
+                        </div>
+                        <div class="seal-legend-item">
+                            <span class="seal-badge seal-badge-es3 es3-sml-initial"><i class="fa-solid fa-star"></i> Initial</span>
+                            <span class="seal-legend-label">Schwächste Dimension &lt; 26 — Einstiegsniveau</span>
+                        </div>
+                    </div>
+                    <p class="seal-legend-hint">
+                        <strong>Weakest-Link-Prinzip:</strong> Das Gesamt-Level entspricht der <em>schwächsten</em> der 9 Dimensionen —
+                        eine einzige Lücke (z.&nbsp;B. Lieferkette oder KI-Governance) bestimmt das Ergebnis.
+                        Diese Einschätzung leitet BTC AG aus den SOV-Scores ab — kein offizielles ES³-Audit
+                        (nur STACKIT ist BDO-auditiert zertifiziert).
+                    </p>
                 </div>
             </div>
         </main>

@@ -1000,11 +1000,19 @@
         const buttons = container.querySelectorAll('.audit-mode-btn');
         const currentMode = SCC_DATA.getViewMode ? SCC_DATA.getViewMode() : 'es3';
 
+        const applyLegendVisibility = (mode) => {
+            const sealCard = document.getElementById('sealLegendCard');
+            const es3Card  = document.getElementById('es3LegendCard');
+            if (sealCard) sealCard.style.display = mode === 'seal' ? '' : 'none';
+            if (es3Card)  es3Card.style.display  = mode === 'es3'  ? '' : 'none';
+        };
+
         buttons.forEach(btn => {
             const isActive = btn.dataset.mode === currentMode;
             btn.classList.toggle('is-active', isActive);
             btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
         });
+        applyLegendVisibility(currentMode);
 
         buttons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1015,6 +1023,7 @@
                     b.classList.toggle('is-active', active);
                     b.setAttribute('aria-checked', active ? 'true' : 'false');
                 });
+                applyLegendVisibility(mode);
                 track('view-mode', { mode });
                 reloadProviders();
             });

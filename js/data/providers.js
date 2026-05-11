@@ -97,21 +97,33 @@
      * @param {string} [mode] - Optional: expliziter Mode, sonst aktueller AUDIT_MODE
      * @returns {Array<Object>}
      */
-    function buildProvidersWithControl(mode) {
-        const auditMode = mode || _auditMode;
+    function buildProvidersWithControl(auditMode, viewMode) {
+        const am = auditMode || _auditMode;
+        const vm = viewMode || _viewMode;
         return BASE.BASE_PROVIDER_DATA.map(provider => {
-            const sovScores = ASSESS.computeProviderSovScores(provider.id, auditMode);
-            const control = FRAMEWORK.calculateControlFromSov(sovScores);
+            const sovScores = ASSESS.computeProviderSovScores(provider.id, am);
+            let control;
+            if (vm === 'es3' && sovScores) {
+                // ES³-Modus: Weakest-Link (Minimum aller SOV-Scores) als Achsen-Position,
+                // damit Matrix-Zone und Card-Badge immer übereinstimmen.
+                const vals = [
+                    sovScores.sov1, sovScores.sov2, sovScores.sov3, sovScores.sov4,
+                    sovScores.sov5, sovScores.sov6, sovScores.sov7, sovScores.sov8,
+                ].filter(s => s != null);
+                control = vals.length ? Math.min(...vals) : 0;
+            } else {
+                control = FRAMEWORK.calculateControlFromSov(sovScores);
+            }
             return Object.freeze({ ...provider, control });
         });
     }
 
     /**
-     * Aktuelle Provider-Liste (mode-abhängig). Nicht gecacht — wird bei jedem
-     * Zugriff neu berechnet, damit BASE_PROVIDERS-Konsumenten den aktuellen Mode sehen.
+     * Aktuelle Provider-Liste (audit- und view-mode-abhängig).
+     * Nicht gecacht — wird bei jedem Zugriff neu berechnet.
      */
     function getProviders() {
-        return buildProvidersWithControl();
+        return buildProvidersWithControl(_auditMode, _viewMode);
     }
     // Initiale Snapshot-Liste für Kompatibilität (im Default-Mode 'c1')
     const BASE_PROVIDERS = buildProvidersWithControl('c1');
